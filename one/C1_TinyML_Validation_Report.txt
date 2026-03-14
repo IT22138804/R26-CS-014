@@ -1,0 +1,53 @@
+COMPONENT 1 — STEP 29A DATASET VALIDATION REPORT
+======================================================
+
+Input file: C1_TinyML_Model_5_Features_Synthetic_Fixed.csv
+Original rows: 3000
+Rows removed for missing values: 0
+Duplicate record IDs removed: 0
+Exact duplicate rows removed: 0
+Rows removed for invalid ranges: 0
+Scenario-name mismatches removed: 0
+Binary-label mismatches removed: 0
+Split assignment repaired: NO
+Final cleaned rows: 3000
+
+Rows by split and binary label:
+label          0     1
+split                 
+test         225   225
+train       1050  1050
+validation   225   225
+
+Rows by split and scenario:
+scenario_id     0    1    2    3    4    5
+split                                     
+test          225   45   45   45   45   45
+train        1050  210  210  210  210  210
+validation    225   45   45   45   45   45
+
+Rows by scenario:
+ scenario_id             scenario_name  label  rows
+           0          NORMAL_OPERATION      0  1500
+           1         RFID_AUTH_ANOMALY      1   300
+           2    SOIL_SENSOR_DISCONNECT      1   300
+           3 LIGHT_SENSOR_MANIPULATION      1   300
+           4   ACTUATOR_RUNTIME_MISUSE      1   300
+           5           PHYSICAL_TAMPER      1   300
+
+Training-only scaler statistics:
+          feature   train_mean    train_std
+rfid_auth_feature    -0.011190     0.333711
+     tamper_state     0.100000     0.300000
+ temp_light_ratio     1.826957     6.412370
+   moisture_delta    -0.297310     3.459264
+ relay_runtime_ms 23250.674762 57829.993169
+
+Files created:
+- C1_TinyML_Model_5_Features_Cleaned.csv
+- C1_TinyML_Model_5_Features_Normalized.csv
+- C1_TinyML_Scaler_Stats.csv
+
+STEP 29A RESULT: PASSED
+
+Note: This dataset is synthetic simulation data. Final thesis performance must be evaluated using real ESP32 data.
