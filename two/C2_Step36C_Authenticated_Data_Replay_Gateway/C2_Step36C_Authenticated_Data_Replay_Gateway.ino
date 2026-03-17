@@ -1,0 +1,1419 @@
+/*
+  Component 2 — Step 36B
+  Authenticated handshake — Gateway ESP32
+*/
+
+
+#include <Arduino.h>
+#include <mbedtls/md.h>
+#include <esp_system.h>
+
+constexpr size_t SHA256_LENGTH = 32;
+constexpr size_t NONCE_LENGTH = 16;
+constexpr size_t SESSION_KEY_LENGTH = 16;
+constexpr size_t PROOF_LENGTH = 16;
+constexpr size_t FINGERPRINT_LENGTH = 8;
+
+const char NODE_ID[] = "GH_NODE_01";
+
+// Development-only shared key used to verify the handshake pipeline.
+// Replace this with a unique secret provisioned separately on each
+// authorized device before claiming production security.
+const uint8_t DEVELOPMENT_PSK[32] = {
+  0x52, 0xA8, 0x17, 0xC3, 0x9D, 0x64, 0xEE, 0x20,
+  0x41, 0xB7, 0x6C, 0x0F, 0xD2, 0x89, 0x35, 0xFA,
+  0x73, 0x1E, 0x94, 0x4B, 0xA5, 0x68, 0xCD, 0x12,
+  0xE7, 0x30, 0x5A, 0xB9, 0x86, 0xF1, 0x2D, 0x4C
+};
+
+void secureZeroize(void* memory, size_t length) {
+  volatile uint8_t* pointer =
+      static_cast<volatile uint8_t*>(memory);
+
+  while (length > 0) {
+    *pointer = 0;
+    pointer++;
+    length--;
+  }
+}
+
+bool isAllZero(const uint8_t* data, size_t length) {
+  uint8_t accumulator = 0;
+
+  for (size_t index = 0; index < length; index++) {
+    accumulator |= data[index];
+  }
+
+  return accumulator == 0;
+}
+
+bool constantTimeEqual(
+    const uint8_t* first,
+    const uint8_t* second,
+    size_t length
+) {
+  uint8_t difference = 0;
+
+  for (size_t index = 0; index < length; index++) {
+    difference |= first[index] ^ second[index];
+  }
+
+  return difference == 0;
+}
+
+bool hmacSha256(
+    const uint8_t* key,
+    size_t keyLength,
+    const uint8_t* data,
+    size_t dataLength,
+    uint8_t output[SHA256_LENGTH]
+) {
+  const mbedtls_md_info_t* information =
+      mbedtls_md_info_from_type(MBEDTLS_MD_SHA256);
+
+  if (information == nullptr) {
+    return false;
+  }
+
+  mbedtls_md_context_t context;
+  mbedtls_md_init(&context);
+
+  int result = mbedtls_md_setup(
+    &context,
+    information,
+    1
+  );
+
+  if (result == 0) {
+    result = mbedtls_md_hmac_starts(
+      &context,
+      key,
+      keyLength
+    );
+  }
+
+  if (result == 0 && dataLength > 0) {
+    result = mbedtls_md_hmac_update(
+      &context,
+      data,
+      dataLength
+    );
+  }
+
+  if (result == 0) {
+    result = mbedtls_md_hmac_finish(
+      &context,
+      output
+    );
+  }
+
+  mbedtls_md_free(&context);
+  return result == 0;
+}
+
+bool hkdfSha256(
+    const uint8_t* inputKey,
+    size_t inputKeyLength,
+    const uint8_t* salt,
+    size_t saltLength,
+    const uint8_t* information,
+    size_t informationLength,
+    uint8_t* output,
+    size_t outputLength
+) {
+  if (
+    outputLength == 0
+    || outputLength > 255 * SHA256_LENGTH
+  ) {
+    return false;
+  }
+
+  uint8_t pseudoRandomKey[SHA256_LENGTH] = {0};
+
+  if (!hmacSha256(
+        salt,
+        saltLength,
+        inputKey,
+        inputKeyLength,
+        pseudoRandomKey
+      )) {
+    secureZeroize(
+      pseudoRandomKey,
+      sizeof(pseudoRandomKey)
+    );
+
+    return false;
+  }
+
+  uint8_t previousBlock[SHA256_LENGTH] = {0};
+  size_t previousLength = 0;
+  size_t generated = 0;
+  uint8_t counter = 1;
+
+  while (generated < outputLength) {
+    const mbedtls_md_info_t* mdInformation =
+        mbedtls_md_info_from_type(MBEDTLS_MD_SHA256);
+
+    if (mdInformation == nullptr) {
+      secureZeroize(
+        pseudoRandomKey,
+        sizeof(pseudoRandomKey)
+      );
+
+      secureZeroize(
+        previousBlock,
+        sizeof(previousBlock)
+      );
+
+      return false;
+    }
+
+    mbedtls_md_context_t context;
+    mbedtls_md_init(&context);
+
+    int result = mbedtls_md_setup(
+      &context,
+      mdInformation,
+      1
+    );
+
+    if (result == 0) {
+      result = mbedtls_md_hmac_starts(
+        &context,
+        pseudoRandomKey,
+        sizeof(pseudoRandomKey)
+      );
+    }
+
+    if (result == 0 && previousLength > 0) {
+      result = mbedtls_md_hmac_update(
+        &context,
+        previousBlock,
+        previousLength
+      );
+    }
+
+    if (result == 0 && informationLength > 0) {
+      result = mbedtls_md_hmac_update(
+        &context,
+        information,
+        informationLength
+      );
+    }
+
+    if (result == 0) {
+      result = mbedtls_md_hmac_update(
+        &context,
+        &counter,
+        1
+      );
+    }
+
+    if (result == 0) {
+      result = mbedtls_md_hmac_finish(
+        &context,
+        previousBlock
+      );
+    }
+
+    mbedtls_md_free(&context);
+
+    if (result != 0) {
+      secureZeroize(
+        pseudoRandomKey,
+        sizeof(pseudoRandomKey)
+      );
+
+      secureZeroize(
+        previousBlock,
+        sizeof(previousBlock)
+      );
+
+      return false;
+    }
+
+    previousLength = SHA256_LENGTH;
+
+    const size_t remaining =
+        outputLength - generated;
+
+    const size_t copyLength =
+        remaining < SHA256_LENGTH
+          ? remaining
+          : SHA256_LENGTH;
+
+    memcpy(
+      output + generated,
+      previousBlock,
+      copyLength
+    );
+
+    generated += copyLength;
+    counter++;
+  }
+
+  secureZeroize(
+    pseudoRandomKey,
+    sizeof(pseudoRandomKey)
+  );
+
+  secureZeroize(
+    previousBlock,
+    sizeof(previousBlock)
+  );
+
+  return true;
+}
+
+bool sha256Digest(
+    const uint8_t* data,
+    size_t length,
+    uint8_t output[SHA256_LENGTH]
+) {
+  const mbedtls_md_info_t* information =
+      mbedtls_md_info_from_type(MBEDTLS_MD_SHA256);
+
+  if (information == nullptr) {
+    return false;
+  }
+
+  return mbedtls_md(
+    information,
+    data,
+    length,
+    output
+  ) == 0;
+}
+
+String bytesToHex(const uint8_t* data, size_t length) {
+  static const char* HEX_DIGITS = "0123456789ABCDEF";
+
+  String result;
+  result.reserve(length * 2);
+
+  for (size_t index = 0; index < length; index++) {
+    result += HEX_DIGITS[(data[index] >> 4) & 0x0F];
+    result += HEX_DIGITS[data[index] & 0x0F];
+  }
+
+  return result;
+}
+
+int hexValue(char character) {
+  if (character >= '0' && character <= '9') {
+    return character - '0';
+  }
+
+  if (character >= 'A' && character <= 'F') {
+    return character - 'A' + 10;
+  }
+
+  if (character >= 'a' && character <= 'f') {
+    return character - 'a' + 10;
+  }
+
+  return -1;
+}
+
+bool hexToBytes(
+    const String& text,
+    uint8_t* output,
+    size_t outputLength
+) {
+  if (text.length() != outputLength * 2) {
+    return false;
+  }
+
+  for (size_t index = 0; index < outputLength; index++) {
+    const int high = hexValue(text[index * 2]);
+    const int low = hexValue(text[index * 2 + 1]);
+
+    if (high < 0 || low < 0) {
+      return false;
+    }
+
+    output[index] =
+        static_cast<uint8_t>((high << 4) | low);
+  }
+
+  return true;
+}
+
+bool calculateFingerprint(
+    const uint8_t* key,
+    size_t keyLength,
+    uint8_t output[FINGERPRINT_LENGTH]
+) {
+  uint8_t digest[SHA256_LENGTH] = {0};
+
+  if (!sha256Digest(key, keyLength, digest)) {
+    secureZeroize(digest, sizeof(digest));
+    return false;
+  }
+
+  memcpy(output, digest, FINGERPRINT_LENGTH);
+  secureZeroize(digest, sizeof(digest));
+  return true;
+}
+
+bool calculateTruncatedProof(
+    const uint8_t* key,
+    size_t keyLength,
+    const String& transcript,
+    uint8_t output[PROOF_LENGTH]
+) {
+  uint8_t fullProof[SHA256_LENGTH] = {0};
+
+  const bool success = hmacSha256(
+    key,
+    keyLength,
+    reinterpret_cast<const uint8_t*>(
+      transcript.c_str()
+    ),
+    transcript.length(),
+    fullProof
+  );
+
+  if (success) {
+    memcpy(output, fullProof, PROOF_LENGTH);
+  }
+
+  secureZeroize(fullProof, sizeof(fullProof));
+  return success;
+}
+
+bool splitCsv(
+    const String& line,
+    String fields[],
+    size_t expectedFields
+) {
+  size_t fieldIndex = 0;
+  int start = 0;
+
+  while (fieldIndex < expectedFields) {
+    const int comma = line.indexOf(',', start);
+
+    if (comma < 0) {
+      fields[fieldIndex++] = line.substring(start);
+      break;
+    }
+
+    fields[fieldIndex++] = line.substring(start, comma);
+    start = comma + 1;
+  }
+
+  return fieldIndex == expectedFields
+      && line.indexOf(',', start) < 0;
+}
+
+bool deriveSessionKeys(
+    uint32_t sessionId,
+    const uint8_t sensorNonce[NONCE_LENGTH],
+    const uint8_t gatewayNonce[NONCE_LENGTH],
+    uint8_t appSKey[SESSION_KEY_LENGTH],
+    uint8_t nwkSKey[SESSION_KEY_LENGTH]
+) {
+  uint8_t salt[NONCE_LENGTH * 2] = {0};
+
+  memcpy(
+    salt,
+    sensorNonce,
+    NONCE_LENGTH
+  );
+
+  memcpy(
+    salt + NONCE_LENGTH,
+    gatewayNonce,
+    NONCE_LENGTH
+  );
+
+  const String appInformation =
+      "C2/"
+      + String(NODE_ID)
+      + "/APPSKEY/V1/"
+      + String(sessionId);
+
+  const String nwkInformation =
+      "C2/"
+      + String(NODE_ID)
+      + "/NWKSKEY/V1/"
+      + String(sessionId);
+
+  const bool appSuccess = hkdfSha256(
+    DEVELOPMENT_PSK,
+    sizeof(DEVELOPMENT_PSK),
+    salt,
+    sizeof(salt),
+    reinterpret_cast<const uint8_t*>(
+      appInformation.c_str()
+    ),
+    appInformation.length(),
+    appSKey,
+    SESSION_KEY_LENGTH
+  );
+
+  const bool nwkSuccess = hkdfSha256(
+    DEVELOPMENT_PSK,
+    sizeof(DEVELOPMENT_PSK),
+    salt,
+    sizeof(salt),
+    reinterpret_cast<const uint8_t*>(
+      nwkInformation.c_str()
+    ),
+    nwkInformation.length(),
+    nwkSKey,
+    SESSION_KEY_LENGTH
+  );
+
+  secureZeroize(salt, sizeof(salt));
+  return appSuccess && nwkSuccess;
+}
+
+String buildBaseTranscript(
+    uint32_t sessionId,
+    const String& sensorNonceHex,
+    const String& gatewayNonceHex
+) {
+  return
+      String(NODE_ID)
+      + "|"
+      + String(sessionId)
+      + "|"
+      + sensorNonceHex
+      + "|"
+      + gatewayNonceHex;
+}
+
+
+HardwareSerial E32Serial(2);
+
+constexpr int E32_RX_PIN = 16;
+constexpr int E32_TX_PIN = 17;
+constexpr int E32_AUX_PIN = 35;
+
+constexpr size_t MAX_RADIO_LINE_LENGTH = 220;
+
+String radioLineBuffer;
+uint32_t radioLineOverflowCount = 0;
+
+constexpr unsigned long HANDSHAKE_TIMEOUT_MS = 12000;
+constexpr unsigned long KEY_ACTIVE_WINDOW_MS = 60000;
+
+enum class GatewayHandshakeState {
+  LISTENING,
+  WAITING_FOR_RESPONSE,
+  ESTABLISHED,
+  ZEROIZED,
+  FAILED
+};
+
+GatewayHandshakeState handshakeState =
+    GatewayHandshakeState::LISTENING;
+
+uint32_t sessionId = 0;
+uint8_t sensorNonce[NONCE_LENGTH] = {0};
+uint8_t gatewayNonce[NONCE_LENGTH] = {0};
+
+uint8_t runtimeAppSKey[SESSION_KEY_LENGTH] = {0};
+uint8_t runtimeNwkSKey[SESSION_KEY_LENGTH] = {0};
+
+String sensorNonceHex;
+String gatewayNonceHex;
+
+unsigned long stateStartedAtMs = 0;
+unsigned long establishedAtMs = 0;
+
+// =====================================================
+// STEP 36C — AUTHENTICATED DATA + REPLAY DEFENCE
+// =====================================================
+
+constexpr uint32_t EXPECTED_UNIQUE_PACKETS = 6;
+constexpr unsigned long REPORT_ZEROIZE_DELAY_MS = 5000;
+
+uint32_t lastAcceptedSequence = 0;
+uint32_t authenticatedPacketsAccepted = 0;
+uint32_t replayPacketsRejected = 0;
+uint32_t invalidMacPacketsRejected = 0;
+uint32_t malformedDataPackets = 0;
+uint32_t wrongSessionPackets = 0;
+uint32_t sequenceGapCount = 0;
+
+bool dataSecurityReportPrinted = false;
+bool postReportKeysZeroized = false;
+
+unsigned long dataSecurityReportAtMs = 0;
+
+
+void printKeyFingerprints() {
+  uint8_t appFingerprint[FINGERPRINT_LENGTH] = {0};
+  uint8_t nwkFingerprint[FINGERPRINT_LENGTH] = {0};
+
+  const bool appSuccess = calculateFingerprint(
+    runtimeAppSKey,
+    sizeof(runtimeAppSKey),
+    appFingerprint
+  );
+
+  const bool nwkSuccess = calculateFingerprint(
+    runtimeNwkSKey,
+    sizeof(runtimeNwkSKey),
+    nwkFingerprint
+  );
+
+  Serial.print("AppSKey fingerprint      : ");
+  Serial.println(
+    appSuccess
+      ? bytesToHex(
+          appFingerprint,
+          sizeof(appFingerprint)
+        )
+      : "FAILED"
+  );
+
+  Serial.print("NwkSKey fingerprint      : ");
+  Serial.println(
+    nwkSuccess
+      ? bytesToHex(
+          nwkFingerprint,
+          sizeof(nwkFingerprint)
+        )
+      : "FAILED"
+  );
+
+  secureZeroize(
+    appFingerprint,
+    sizeof(appFingerprint)
+  );
+
+  secureZeroize(
+    nwkFingerprint,
+    sizeof(nwkFingerprint)
+  );
+}
+
+void resetToListening(const String& reason) {
+  Serial.print("Gateway reset reason      : ");
+  Serial.println(reason);
+
+  secureZeroize(
+    runtimeAppSKey,
+    sizeof(runtimeAppSKey)
+  );
+
+  secureZeroize(
+    runtimeNwkSKey,
+    sizeof(runtimeNwkSKey)
+  );
+
+  secureZeroize(
+    sensorNonce,
+    sizeof(sensorNonce)
+  );
+
+  secureZeroize(
+    gatewayNonce,
+    sizeof(gatewayNonce)
+  );
+
+  sessionId = 0;
+  sensorNonceHex = "";
+  gatewayNonceHex = "";
+
+  lastAcceptedSequence = 0;
+  authenticatedPacketsAccepted = 0;
+  replayPacketsRejected = 0;
+  invalidMacPacketsRejected = 0;
+  malformedDataPackets = 0;
+  wrongSessionPackets = 0;
+  sequenceGapCount = 0;
+  dataSecurityReportPrinted = false;
+  postReportKeysZeroized = false;
+  dataSecurityReportAtMs = 0;
+
+  handshakeState =
+      GatewayHandshakeState::LISTENING;
+}
+
+void handleHello(const String& line) {
+  String fields[4];
+
+  if (!splitCsv(line, fields, 4)) {
+    Serial.println("HELLO result              : MALFORMED");
+    return;
+  }
+
+  if (fields[0] != "C2_HELLO_V1") {
+    return;
+  }
+
+  if (fields[1] != NODE_ID) {
+    Serial.println("HELLO result              : UNKNOWN NODE");
+    return;
+  }
+
+  const uint32_t receivedSessionId =
+      static_cast<uint32_t>(
+        strtoul(fields[2].c_str(), nullptr, 10)
+      );
+
+  if (receivedSessionId == 0) {
+    Serial.println("HELLO result              : INVALID SESSION");
+    return;
+  }
+
+  uint8_t receivedSensorNonce[NONCE_LENGTH] = {0};
+
+  if (!hexToBytes(
+        fields[3],
+        receivedSensorNonce,
+        sizeof(receivedSensorNonce)
+      )) {
+    secureZeroize(
+      receivedSensorNonce,
+      sizeof(receivedSensorNonce)
+    );
+
+    Serial.println("HELLO result              : INVALID NONCE");
+    return;
+  }
+
+  if (
+    handshakeState
+      == GatewayHandshakeState::WAITING_FOR_RESPONSE
+    &&
+    receivedSessionId == sessionId
+    &&
+    fields[3] == sensorNonceHex
+  ) {
+    Serial.println("Repeated HELLO            : RESEND CHALLENGE");
+  } else {
+    resetToListening("New authenticated-handshake request");
+
+    sessionId = receivedSessionId;
+
+    memcpy(
+      sensorNonce,
+      receivedSensorNonce,
+      sizeof(sensorNonce)
+    );
+
+    sensorNonceHex = fields[3];
+
+    esp_fill_random(
+      gatewayNonce,
+      sizeof(gatewayNonce)
+    );
+
+    gatewayNonceHex = bytesToHex(
+      gatewayNonce,
+      sizeof(gatewayNonce)
+    );
+  }
+
+  secureZeroize(
+    receivedSensorNonce,
+    sizeof(receivedSensorNonce)
+  );
+
+  const String baseTranscript =
+      buildBaseTranscript(
+        sessionId,
+        sensorNonceHex,
+        gatewayNonceHex
+      );
+
+  const String gatewayTranscript =
+      "GW|" + baseTranscript;
+
+  uint8_t gatewayProof[PROOF_LENGTH] = {0};
+
+  if (!calculateTruncatedProof(
+        DEVELOPMENT_PSK,
+        sizeof(DEVELOPMENT_PSK),
+        gatewayTranscript,
+        gatewayProof
+      )) {
+    secureZeroize(
+      gatewayProof,
+      sizeof(gatewayProof)
+    );
+
+    Serial.println("Gateway proof generation  : FAILED");
+    return;
+  }
+
+  const String challenge =
+      "C2_CHALLENGE_V1,"
+      + String(sessionId)
+      + ","
+      + gatewayNonceHex
+      + ","
+      + bytesToHex(
+          gatewayProof,
+          sizeof(gatewayProof)
+        );
+
+  secureZeroize(
+    gatewayProof,
+    sizeof(gatewayProof)
+  );
+
+  E32Serial.println(challenge);
+
+  Serial.println("HELLO validation          : PASSED");
+  Serial.print("Session ID                : ");
+  Serial.println(sessionId);
+  Serial.println("TX gateway challenge      : SENT");
+
+  handshakeState =
+      GatewayHandshakeState::WAITING_FOR_RESPONSE;
+
+  stateStartedAtMs = millis();
+}
+
+void handleResponse(const String& line) {
+  String fields[3];
+
+  if (!splitCsv(line, fields, 3)) {
+    Serial.println("RESPONSE result           : MALFORMED");
+    return;
+  }
+
+  if (fields[0] != "C2_RESPONSE_V1") {
+    return;
+  }
+
+  const uint32_t receivedSessionId =
+      static_cast<uint32_t>(
+        strtoul(fields[1].c_str(), nullptr, 10)
+      );
+
+  if (
+    handshakeState
+      != GatewayHandshakeState::WAITING_FOR_RESPONSE
+    ||
+    receivedSessionId != sessionId
+  ) {
+    Serial.println("RESPONSE result           : SESSION MISMATCH");
+    return;
+  }
+
+  uint8_t receivedSensorProof[PROOF_LENGTH] = {0};
+
+  if (!hexToBytes(
+        fields[2],
+        receivedSensorProof,
+        sizeof(receivedSensorProof)
+      )) {
+    secureZeroize(
+      receivedSensorProof,
+      sizeof(receivedSensorProof)
+    );
+
+    Serial.println("RESPONSE result           : INVALID PROOF");
+    return;
+  }
+
+  if (!deriveSessionKeys(
+        sessionId,
+        sensorNonce,
+        gatewayNonce,
+        runtimeAppSKey,
+        runtimeNwkSKey
+      )) {
+    secureZeroize(
+      receivedSensorProof,
+      sizeof(receivedSensorProof)
+    );
+
+    Serial.println("Session-key derivation    : FAILED");
+    handshakeState =
+        GatewayHandshakeState::FAILED;
+    return;
+  }
+
+  const String baseTranscript =
+      buildBaseTranscript(
+        sessionId,
+        sensorNonceHex,
+        gatewayNonceHex
+      );
+
+  const String sensorTranscript =
+      "SN|" + baseTranscript;
+
+  uint8_t expectedSensorProof[PROOF_LENGTH] = {0};
+
+  const bool proofCalculated =
+      calculateTruncatedProof(
+        runtimeNwkSKey,
+        sizeof(runtimeNwkSKey),
+        sensorTranscript,
+        expectedSensorProof
+      );
+
+  const bool sensorAuthenticated =
+      proofCalculated
+      && constantTimeEqual(
+        receivedSensorProof,
+        expectedSensorProof,
+        PROOF_LENGTH
+      );
+
+  secureZeroize(
+    receivedSensorProof,
+    sizeof(receivedSensorProof)
+  );
+
+  secureZeroize(
+    expectedSensorProof,
+    sizeof(expectedSensorProof)
+  );
+
+  if (!sensorAuthenticated) {
+    Serial.println("Sensor HMAC verification  : FAILED");
+
+    secureZeroize(
+      runtimeAppSKey,
+      sizeof(runtimeAppSKey)
+    );
+
+    secureZeroize(
+      runtimeNwkSKey,
+      sizeof(runtimeNwkSKey)
+    );
+
+    handshakeState =
+        GatewayHandshakeState::FAILED;
+
+    Serial.println("STEP 36B GATEWAY RESULT   : REVIEW REQUIRED");
+    return;
+  }
+
+  Serial.println("Sensor HMAC verification  : PASSED");
+  Serial.println("Session-key derivation    : PASSED");
+  printKeyFingerprints();
+
+  const String confirmTranscript =
+      "OK|" + baseTranscript;
+
+  uint8_t confirmProof[PROOF_LENGTH] = {0};
+
+  if (!calculateTruncatedProof(
+        runtimeNwkSKey,
+        sizeof(runtimeNwkSKey),
+        confirmTranscript,
+        confirmProof
+      )) {
+    secureZeroize(
+      confirmProof,
+      sizeof(confirmProof)
+    );
+
+    Serial.println("Confirmation generation   : FAILED");
+    return;
+  }
+
+  const String confirmation =
+      "C2_CONFIRM_V1,"
+      + String(sessionId)
+      + ","
+      + bytesToHex(
+          confirmProof,
+          sizeof(confirmProof)
+        );
+
+  secureZeroize(
+    confirmProof,
+    sizeof(confirmProof)
+  );
+
+  E32Serial.println(confirmation);
+
+  handshakeState =
+      GatewayHandshakeState::ESTABLISHED;
+
+  establishedAtMs = millis();
+
+  Serial.println();
+  Serial.println("==========================================");
+  Serial.println("AUTHENTICATED SESSION ESTABLISHED");
+  Serial.println("==========================================");
+  Serial.print("Session ID                : ");
+  Serial.println(sessionId);
+  Serial.println("Gateway authenticated     : YES");
+  Serial.println("Sensor authenticated      : YES");
+  Serial.println("AppSKey state             : ACTIVE");
+  Serial.println("NwkSKey state             : ACTIVE");
+  Serial.println("Key transport             : NONE");
+  Serial.println("Key active window         : 60 seconds");
+  Serial.println("STEP 36B HANDSHAKE        : PASSED");
+  Serial.println("STEP 36C DATA TEST        : WAITING");
+  Serial.println("Payload encryption        : NOT YET");
+  Serial.println("Packet authentication     : HMAC-SHA256");
+  Serial.println("Replay protection         : ENABLED");
+  Serial.println("==========================================");
+}
+
+
+String buildTelemetryTranscriptFromFields(
+    const String fields[]
+) {
+  return
+      "DATA|"
+      + fields[1]
+      + "|"
+      + fields[2]
+      + "|"
+      + fields[3]
+      + "|"
+      + fields[4]
+      + "|"
+      + fields[5]
+      + "|"
+      + fields[6]
+      + "|"
+      + fields[7]
+      + "|"
+      + fields[8];
+}
+
+void printGatewayDataSecurityReport() {
+  if (dataSecurityReportPrinted) {
+    return;
+  }
+
+  dataSecurityReportPrinted = true;
+  dataSecurityReportAtMs = millis();
+
+  Serial.println();
+  Serial.println("==========================================");
+  Serial.println("COMPONENT 2 — STEP 36C GATEWAY REPORT");
+  Serial.println("==========================================");
+  Serial.print("Authenticated accepted   : ");
+  Serial.println(authenticatedPacketsAccepted);
+  Serial.print("Last accepted sequence   : ");
+  Serial.println(lastAcceptedSequence);
+  Serial.print("Replay packets rejected  : ");
+  Serial.println(replayPacketsRejected);
+  Serial.print("Invalid HMAC rejected    : ");
+  Serial.println(invalidMacPacketsRejected);
+  Serial.print("Wrong session rejected   : ");
+  Serial.println(wrongSessionPackets);
+  Serial.print("Malformed data packets   : ");
+  Serial.println(malformedDataPackets);
+  Serial.print("Sequence gaps observed   : ");
+  Serial.println(sequenceGapCount);
+  Serial.println("Payload encryption       : NOT YET");
+  Serial.print("STEP 36C GATEWAY RESULT  : ");
+
+  if (
+    authenticatedPacketsAccepted
+        == EXPECTED_UNIQUE_PACKETS
+    && lastAcceptedSequence
+        == EXPECTED_UNIQUE_PACKETS
+    && replayPacketsRejected >= 1
+    && invalidMacPacketsRejected == 0
+    && malformedDataPackets == 0
+    && wrongSessionPackets == 0
+    && sequenceGapCount == 0
+  ) {
+    Serial.println("PASSED");
+  } else {
+    Serial.println("REVIEW REQUIRED");
+  }
+
+  Serial.println("==========================================");
+}
+
+void handleAuthenticatedTelemetry(
+    const String& line
+) {
+  if (
+    handshakeState
+      != GatewayHandshakeState::ESTABLISHED
+  ) {
+    Serial.println(
+      "DATA result               : NO ACTIVE SESSION"
+    );
+
+    return;
+  }
+
+  String fields[10];
+
+  if (!splitCsv(line, fields, 10)) {
+    malformedDataPackets++;
+
+    Serial.println(
+      "DATA result               : MALFORMED"
+    );
+
+    return;
+  }
+
+  if (fields[0] != "C2_DATA_V1") {
+    return;
+  }
+
+  if (fields[1] != NODE_ID) {
+    wrongSessionPackets++;
+
+    Serial.println(
+      "DATA result               : UNKNOWN NODE"
+    );
+
+    return;
+  }
+
+  const uint32_t packetSessionId =
+      static_cast<uint32_t>(
+        strtoul(fields[2].c_str(), nullptr, 10)
+      );
+
+  const uint32_t sequence =
+      static_cast<uint32_t>(
+        strtoul(fields[3].c_str(), nullptr, 10)
+      );
+
+  if (
+    packetSessionId != sessionId
+    || sequence == 0
+  ) {
+    wrongSessionPackets++;
+
+    Serial.println(
+      "DATA result               : SESSION/SEQUENCE INVALID"
+    );
+
+    return;
+  }
+
+  uint8_t receivedTag[PROOF_LENGTH] = {0};
+
+  if (!hexToBytes(
+        fields[9],
+        receivedTag,
+        sizeof(receivedTag)
+      )) {
+    malformedDataPackets++;
+
+    secureZeroize(
+      receivedTag,
+      sizeof(receivedTag)
+    );
+
+    Serial.println(
+      "DATA result               : INVALID TAG ENCODING"
+    );
+
+    return;
+  }
+
+  const String transcript =
+      buildTelemetryTranscriptFromFields(fields);
+
+  uint8_t expectedTag[PROOF_LENGTH] = {0};
+
+  const bool tagCalculated =
+      calculateTruncatedProof(
+        runtimeNwkSKey,
+        sizeof(runtimeNwkSKey),
+        transcript,
+        expectedTag
+      );
+
+  const bool tagValid =
+      tagCalculated
+      && constantTimeEqual(
+        receivedTag,
+        expectedTag,
+        PROOF_LENGTH
+      );
+
+  secureZeroize(
+    receivedTag,
+    sizeof(receivedTag)
+  );
+
+  secureZeroize(
+    expectedTag,
+    sizeof(expectedTag)
+  );
+
+  if (!tagValid) {
+    invalidMacPacketsRejected++;
+
+    Serial.println();
+    Serial.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    Serial.println("AUTHENTICATION FAILURE");
+    Serial.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    Serial.print("Rejected sequence         : ");
+    Serial.println(sequence);
+    Serial.println("Reason                    : INVALID HMAC");
+    Serial.println("Packet accepted           : NO");
+    Serial.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+    return;
+  }
+
+  // HMAC is checked before the replay window. A valid old packet
+  // still has a valid MAC, but must not be accepted again.
+  if (sequence <= lastAcceptedSequence) {
+    replayPacketsRejected++;
+
+    Serial.println();
+    Serial.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    Serial.println("REPLAY ATTACK REJECTED");
+    Serial.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    Serial.print("Received sequence         : ");
+    Serial.println(sequence);
+    Serial.print("Last accepted sequence    : ");
+    Serial.println(lastAcceptedSequence);
+    Serial.println("HMAC verification         : PASSED");
+    Serial.println("Replay-window result      : REJECTED");
+    Serial.println("Packet accepted           : NO");
+    Serial.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+    if (
+      authenticatedPacketsAccepted
+          >= EXPECTED_UNIQUE_PACKETS
+    ) {
+      printGatewayDataSecurityReport();
+    }
+
+    return;
+  }
+
+  if (
+    lastAcceptedSequence > 0
+    && sequence > lastAcceptedSequence + 1
+  ) {
+    sequenceGapCount +=
+        sequence - lastAcceptedSequence - 1;
+  }
+
+  lastAcceptedSequence = sequence;
+  authenticatedPacketsAccepted++;
+
+  Serial.println();
+  Serial.println("------------------------------------------");
+  Serial.println("AUTHENTICATED TELEMETRY ACCEPTED");
+  Serial.println("------------------------------------------");
+  Serial.print("Session ID                : ");
+  Serial.println(packetSessionId);
+  Serial.print("Sequence                  : ");
+  Serial.println(sequence);
+  Serial.println("HMAC verification         : PASSED");
+  Serial.println("Replay-window result      : FRESH");
+  Serial.print("Temperature x100          : ");
+  Serial.println(fields[5]);
+  Serial.print("Humidity x100             : ");
+  Serial.println(fields[6]);
+  Serial.print("Soil raw                  : ");
+  Serial.println(fields[7]);
+  Serial.print("System state              : ");
+  Serial.println(fields[8]);
+  Serial.println("Packet accepted           : YES");
+  Serial.println("------------------------------------------");
+}
+
+void zeroizeGatewayKeysAfterReport() {
+  if (postReportKeysZeroized) {
+    return;
+  }
+
+  postReportKeysZeroized = true;
+
+  secureZeroize(
+    runtimeAppSKey,
+    sizeof(runtimeAppSKey)
+  );
+
+  secureZeroize(
+    runtimeNwkSKey,
+    sizeof(runtimeNwkSKey)
+  );
+
+  const bool appZeroized =
+      isAllZero(
+        runtimeAppSKey,
+        sizeof(runtimeAppSKey)
+      );
+
+  const bool nwkZeroized =
+      isAllZero(
+        runtimeNwkSKey,
+        sizeof(runtimeNwkSKey)
+      );
+
+  Serial.println();
+  Serial.println("POST-TEST KEY ZEROIZATION");
+  Serial.print("AppSKey zeroization      : ");
+  Serial.println(appZeroized ? "PASSED" : "FAILED");
+  Serial.print("NwkSKey zeroization      : ");
+  Serial.println(nwkZeroized ? "PASSED" : "FAILED");
+
+  handshakeState =
+      GatewayHandshakeState::ZEROIZED;
+}
+
+
+void processIncomingLine(String line) {
+  line.trim();
+
+  if (line.length() == 0) {
+    return;
+  }
+
+  Serial.print("RX message type           : ");
+
+  const int comma = line.indexOf(',');
+
+  Serial.println(
+    comma >= 0
+      ? line.substring(0, comma)
+      : line
+  );
+
+  if (line.startsWith("C2_HELLO_V1,")) {
+    handleHello(line);
+    return;
+  }
+
+  if (line.startsWith("C2_RESPONSE_V1,")) {
+    handleResponse(line);
+    return;
+  }
+
+  if (line.startsWith("C2_DATA_V1,")) {
+    handleAuthenticatedTelemetry(line);
+  }
+}
+
+void serviceE32Input() {
+  while (E32Serial.available() > 0) {
+    const char receivedCharacter =
+        static_cast<char>(E32Serial.read());
+
+    if (receivedCharacter == '\r') {
+      continue;
+    }
+
+    if (receivedCharacter == '\n') {
+      if (radioLineBuffer.length() > 0) {
+        String completeLine = radioLineBuffer;
+        radioLineBuffer = "";
+
+        processIncomingLine(completeLine);
+      }
+
+      continue;
+    }
+
+    if (
+      radioLineBuffer.length()
+      >= MAX_RADIO_LINE_LENGTH
+    ) {
+      radioLineBuffer = "";
+      radioLineOverflowCount++;
+
+      Serial.print(
+        "Radio line overflow count : "
+      );
+
+      Serial.println(
+        radioLineOverflowCount
+      );
+
+      continue;
+    }
+
+    radioLineBuffer += receivedCharacter;
+  }
+}
+
+
+void setup() {
+  Serial.begin(115200);
+  delay(1200);
+
+  pinMode(E32_AUX_PIN, INPUT);
+
+  E32Serial.begin(
+    9600,
+    SERIAL_8N1,
+    E32_RX_PIN,
+    E32_TX_PIN
+  );
+
+  E32Serial.setTimeout(300);
+
+  // Keep partial UART frames between loop iterations.
+  // This prevents long E32 packets from being split by a short
+  // readStringUntil() timeout.
+  radioLineBuffer.reserve(MAX_RADIO_LINE_LENGTH);
+
+  Serial.println();
+  Serial.println("==========================================");
+  Serial.println("COMPONENT 2 — STEP 36C");
+  Serial.println("AUTHENTICATED TELEMETRY + REPLAY TEST — GATEWAY");
+  Serial.println("==========================================");
+  Serial.println("Radio mode                : TRANSPARENT");
+  Serial.println("Gateway authentication    : HMAC-SHA256");
+  Serial.println("Sensor authentication     : HMAC-SHA256");
+  Serial.println("Session keys              : HKDF-SHA256");
+  Serial.println("Actual keys printed       : NO");
+  Serial.println("Development PSK           : YES");
+  Serial.println("Production security claim : NOT YET");
+  Serial.println("Waiting for sensor HELLO...");
+  Serial.println();
+}
+
+void loop() {
+  serviceE32Input();
+
+  if (
+    handshakeState
+      == GatewayHandshakeState::WAITING_FOR_RESPONSE
+    &&
+    millis() - stateStartedAtMs
+        >= HANDSHAKE_TIMEOUT_MS
+  ) {
+    resetToListening("Response timeout");
+  }
+
+  if (
+    handshakeState
+      == GatewayHandshakeState::ESTABLISHED
+    &&
+    dataSecurityReportPrinted
+    &&
+    !postReportKeysZeroized
+    &&
+    millis() - dataSecurityReportAtMs
+        >= REPORT_ZEROIZE_DELAY_MS
+  ) {
+    zeroizeGatewayKeysAfterReport();
+  }
+
+  if (
+    handshakeState
+      == GatewayHandshakeState::ESTABLISHED
+    &&
+    millis() - establishedAtMs
+        >= KEY_ACTIVE_WINDOW_MS
+  ) {
+    Serial.println(
+      "Session safety timeout    : ZEROIZE"
+    );
+
+    if (!dataSecurityReportPrinted) {
+      printGatewayDataSecurityReport();
+    }
+
+    zeroizeGatewayKeysAfterReport();
+  }
+
+  delay(5);
+}
