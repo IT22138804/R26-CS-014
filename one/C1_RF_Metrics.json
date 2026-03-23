@@ -1,0 +1,133 @@
+{
+  "model": {
+    "type": "RandomForestClassifier",
+    "n_estimators": 30,
+    "max_depth": 6,
+    "min_samples_leaf": 3,
+    "feature_columns": [
+      "rfid_auth_feature",
+      "tamper_state",
+      "temp_light_ratio",
+      "moisture_delta",
+      "relay_runtime_ms"
+    ],
+    "decision_threshold": 0.5,
+    "random_state": 20260722
+  },
+  "dataset": {
+    "input_file": "C1_TinyML_Model_5_Features_Cleaned.csv",
+    "train_rows": 2100,
+    "validation_rows": 450,
+    "test_rows": 450,
+    "data_sources": [
+      "synthetic_simulation"
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.9177777777777778,
+    "precision_anomaly": 0.9845360824742269,
+    "recall_anomaly": 0.8488888888888889,
+    "f1_anomaly": 0.9116945107398569,
+    "roc_auc": 0.9794074074074075,
+    "specificity_normal": 0.9866666666666667,
+    "false_positive_rate": 0.013333333333333334,
+    "false_negative_rate": 0.1511111111111111,
+    "true_negative": 222,
+    "false_positive": 3,
+    "false_negative": 34,
+    "true_positive": 191
+  },
+  "test_metrics": {
+    "accuracy": 0.8955555555555555,
+    "precision_anomaly": 0.9836956521739131,
+    "recall_anomaly": 0.8044444444444444,
+    "f1_anomaly": 0.8850855745721271,
+    "roc_auc": 0.9725530864197531,
+    "specificity_normal": 0.9866666666666667,
+    "false_positive_rate": 0.013333333333333334,
+    "false_negative_rate": 0.19555555555555557,
+    "true_negative": 222,
+    "false_positive": 3,
+    "false_negative": 44,
+    "true_positive": 181
+  },
+  "test_scenario_metrics": [
+    {
+      "scenario_id": 0,
+      "scenario_name": "NORMAL_OPERATION",
+      "expected_label": 0,
+      "rows": 225,
+      "correct_predictions": 222,
+      "scenario_accuracy": 0.9866666666666667
+    },
+    {
+      "scenario_id": 1,
+      "scenario_name": "RFID_AUTH_ANOMALY",
+      "expected_label": 1,
+      "rows": 45,
+      "correct_predictions": 45,
+      "scenario_accuracy": 1.0
+    },
+    {
+      "scenario_id": 2,
+      "scenario_name": "SOIL_SENSOR_DISCONNECT",
+      "expected_label": 1,
+      "rows": 45,
+      "correct_predictions": 4,
+      "scenario_accuracy": 0.08888888888888889
+    },
+    {
+      "scenario_id": 3,
+      "scenario_name": "LIGHT_SENSOR_MANIPULATION",
+      "expected_label": 1,
+      "rows": 45,
+      "correct_predictions": 45,
+      "scenario_accuracy": 1.0
+    },
+    {
+      "scenario_id": 4,
+      "scenario_name": "ACTUATOR_RUNTIME_MISUSE",
+      "expected_label": 1,
+      "rows": 45,
+      "correct_predictions": 42,
+      "scenario_accuracy": 0.9333333333333333
+    },
+    {
+      "scenario_id": 5,
+      "scenario_name": "PHYSICAL_TAMPER",
+      "expected_label": 1,
+      "rows": 45,
+      "correct_predictions": 45,
+      "scenario_accuracy": 1.0
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "relay_runtime_ms",
+      "importance": 0.4094058379920629
+    },
+    {
+      "feature": "temp_light_ratio",
+      "importance": 0.21414277185495204
+    },
+    {
+      "feature": "rfid_auth_feature",
+      "importance": 0.19027680014429668
+    },
+    {
+      "feature": "tamper_state",
+      "importance": 0.168308568575164
+    },
+    {
+      "feature": "moisture_delta",
+      "importance": 0.01786602143352439
+    }
+  ],
+  "pass_conditions": {
+    "test_recall_at_least_0_90": false,
+    "test_f1_at_least_0_90": false,
+    "false_positive_rate_at_most_0_10": true
+  },
+  "step_30a_result": "REVIEW_REQUIRED",
+  "important_note": "Metrics are based on synthetic simulation data and validate the training pipeline only. Final thesis results require real held-out ESP32 measurements."
+}
