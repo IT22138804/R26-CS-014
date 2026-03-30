@@ -1,0 +1,124 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "greenhouse": {
+      "$nodeId": {
+        ".read": "auth != null && (auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1' || auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2')",
+        ".write": "auth != null && auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1'"
+      }
+    },
+    "network": {
+      ".read": "auth != null && (auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1' || auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2')",
+      ".write": "auth != null && auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1'"
+    },
+    "demo": {
+      ".read": "auth != null && (auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2' || auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1')",
+      ".write": "auth != null && (auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2' || auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1')",
+      "component1": {
+        "pending": {
+          ".read": "auth != null && auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1'",
+          ".validate": "newData.hasChildren(['command','requestId','requestedAt','requestedBy'])",
+          "command": {
+            ".validate": "newData.isString() && (newData.val() === 'DEMO_AUTHORIZED_UNLOCK' || newData.val() === 'DEMO_WRONG_CARD' || newData.val() === 'DEMO_RFID_CLONE' || newData.val() === 'DEMO_INSIDER_MISUSE')"
+          },
+          "requestId": {
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 32"
+          },
+          "requestedAt": {
+            ".validate": "newData.isNumber() && newData.val() > 0"
+          },
+          "requestedBy": {
+            ".validate": "newData.val() === 'COMPONENT1_DASHBOARD'"
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+      },
+      "component2": {
+        "pending": {
+          ".read": "auth != null && auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1'",
+          ".validate": "newData.hasChildren(['command','requestId','requestedAt','requestedBy'])",
+          "command": {
+            ".validate": "newData.isString() && (newData.val() === 'TEST_REPLAY' || newData.val() === 'TEST_INVALID_HMAC' || newData.val() === 'TEST_INVALID_GCM' || newData.val() === 'TEST_STALE_TIMESTAMP' || newData.val() === 'TEST_HMAC_SPIKE' || newData.val() === 'ROTATE_SESSION' || newData.val() === 'REVOKE_SESSION')"
+          },
+          "requestId": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 32" },
+          "requestedAt": { ".validate": "newData.isNumber() && newData.val() > 0" },
+          "requestedBy": { ".validate": "newData.val() === 'COMPONENT2_DASHBOARD'" },
+          "$other": { ".validate": false }
+        }
+      },
+      "component3": {
+        "pending": {
+          ".validate": "newData.hasChildren(['command','requestId','requestedAt','requestedBy'])",
+          "command": {
+            ".validate": "newData.isString() && (newData.val() === 'C3_RUN_FULL_SUITE' || newData.val() === 'C3_NORMAL_DAYLIGHT' || newData.val() === 'C3_EXACT_BACKDOOR' || newData.val() === 'C3_JITTERED_BACKDOOR' || newData.val() === 'C3_SLOW_POISON' || newData.val() === 'C3_CLEAN_DARK' || newData.val() === 'C3_HOT_DAYLIGHT')"
+          },
+          "requestId": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 32" },
+          "requestedAt": { ".validate": "newData.isNumber() && newData.val() > 0" },
+          "requestedBy": { ".validate": "newData.val() === 'COMPONENT3_DASHBOARD'" },
+          "$other": { ".validate": false }
+        }
+      }
+    },
+    "component4_test": {
+      "users": {
+        "$uid": {
+          ".read": "auth != null && auth.uid === $uid",
+          ".write": false
+        }
+      },
+      "nodes": {
+        "$nodeId": {
+          ".read": "auth != null && root.child('component4_test/users').child(auth.uid).child('assigned_nodes').child($nodeId).val() === true",
+          ".write": false
+        }
+      },
+      "client_requests": {
+        "$uid": {
+          "$requestId": {
+            ".read": "auth != null && auth.uid === $uid",
+            ".write": "auth != null && auth.uid === $uid && root.child('component4_test/users').child(auth.uid).child('assigned_nodes').child(newData.child('nodeId').val()).val() === true && (root.child('component4_test/users').child(auth.uid).child('role').val() === 'operator' || root.child('component4_test/users').child(auth.uid).child('role').val() === 'manager' || root.child('component4_test/users').child(auth.uid).child('role').val() === 'admin')",
+            ".validate": "newData.hasChildren(['nodeId','actuator','state','createdAt'])",
+            "nodeId": {
+              ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 64"
+            },
+            "actuator": {
+              ".validate": "newData.isString() && (newData.val() === 'relay_pump' || newData.val() === 'relay_fan')"
+            },
+            "state": {
+              ".validate": "newData.isString() && (newData.val() === 'ON' || newData.val() === 'OFF')"
+            },
+            "createdAt": {
+              ".validate": "newData.isNumber() && newData.val() > 0"
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        }
+      },
+      "actuator_state": {
+        ".read": false,
+        ".write": false
+      },
+      "security_events": {
+        ".read": false,
+        ".write": false
+      },
+      "command_audit": {
+        ".read": false,
+        ".write": false
+      },
+      "authorized_intents": {
+        ".read": false,
+        ".write": false
+      },
+      "telemetry": {
+        ".read": false,
+        ".write": false
+      }
+    }
+  }
+}
