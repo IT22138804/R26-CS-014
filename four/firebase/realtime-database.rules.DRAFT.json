@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": false
+      }
+    },
+    "devices": {
+      "$deviceId": {
+        ".read": "auth != null && root.child('users').child(auth.uid).child('assigned_nodes').child($deviceId).val() === true",
+        "actuators": {
+          "$actuatorId": {
+            ".write": "auth != null && root.child('users').child(auth.uid).child('assigned_nodes').child($deviceId).val() === true && (root.child('users').child(auth.uid).child('role').val() === 'operator' || root.child('users').child(auth.uid).child('role').val() === 'manager' || root.child('users').child(auth.uid).child('role').val() === 'admin')",
+            ".validate": "$actuatorId === 'relay_pump' || $actuatorId === 'relay_fan'"
+          }
+        }
+      }
+    }
+  }
+}
