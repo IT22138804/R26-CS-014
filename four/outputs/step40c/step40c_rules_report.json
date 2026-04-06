@@ -1,0 +1,105 @@
+{
+  "component": 4,
+  "step": "40C",
+  "casesExecuted": 12,
+  "casesPassed": 12,
+  "casesFailed": 0,
+  "bolaAttempts": 3,
+  "bolaAttemptsBlocked": 3,
+  "assignedNodeReadAllowed": true,
+  "directActuatorWriteBlocked": true,
+  "roleFieldInjectionBlocked": true,
+  "userProfileEscalationBlocked": true,
+  "emulatorOnly": true,
+  "liveRulesDeployed": false,
+  "existingComponentsRulesChanged": false,
+  "actualActuatorCommands": false,
+  "productionSecurityClaim": false,
+  "result": "PASSED",
+  "evidence": [
+    {
+      "caseId": "C4C-01",
+      "scenario": "READ_ASSIGNED_NODE",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-02",
+      "scenario": "BOLA_READ_UNASSIGNED_NODE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-03",
+      "scenario": "WRITE_VALID_REQUEST_FOR_ASSIGNED_NODE",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-04",
+      "scenario": "BOLA_WRITE_REQUEST_FOR_UNASSIGNED_NODE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-05",
+      "scenario": "WRITE_TO_ANOTHER_USERS_REQUEST_NAMESPACE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-06",
+      "scenario": "VIEWER_TRIES_CONTROL_REQUEST",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-07",
+      "scenario": "UNAUTHENTICATED_REQUEST_WRITE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-08",
+      "scenario": "DIRECT_ACTUATOR_STATE_WRITE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-09",
+      "scenario": "ROLE_FIELD_INJECTION_IN_REQUEST",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-10",
+      "scenario": "INVALID_ACTUATOR_NAME",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-11",
+      "scenario": "INVALID_COMMAND_STATE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4C-12",
+      "scenario": "USER_CANNOT_EDIT_SERVER_ROLE_OR_OWNERSHIP",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    }
+  ]
+}
