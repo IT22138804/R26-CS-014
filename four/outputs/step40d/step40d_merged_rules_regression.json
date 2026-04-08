@@ -1,0 +1,183 @@
+{
+  "component": 4,
+  "step": "40D",
+  "casesExecuted": 20,
+  "casesPassed": 19,
+  "casesFailed": 1,
+  "existingRulesRegressionCases": 10,
+  "existingRulesRegressionPassed": 9,
+  "component4RulesCases": 10,
+  "component4RulesPassed": 10,
+  "bolaObjectAttacks": 3,
+  "bolaObjectAttacksBlocked": 3,
+  "gatewayUidPreserved": "JCBeErnTRHf5ZP7OGpLWkpjfKKy1",
+  "dashboardUidPreserved": "L7XhYCjTs9Ys21wwpb9FOnDeyau2",
+  "emulatorOnly": true,
+  "liveRulesDeployed": false,
+  "liveDatabaseModified": false,
+  "actualActuatorCommands": false,
+  "productionSecurityClaim": false,
+  "result": "REVIEW_REQUIRED",
+  "evidence": [
+    {
+      "caseId": "C4D-01",
+      "area": "EXISTING_GREENHOUSE",
+      "scenario": "GATEWAY_WRITE_GREENHOUSE",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-02",
+      "area": "EXISTING_GREENHOUSE",
+      "scenario": "DASHBOARD_READ_GREENHOUSE",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-03",
+      "area": "EXISTING_GREENHOUSE",
+      "scenario": "DASHBOARD_WRITE_GREENHOUSE_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-04",
+      "area": "EXISTING_GREENHOUSE",
+      "scenario": "UNRELATED_USER_READ_GREENHOUSE_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-05",
+      "area": "EXISTING_NETWORK",
+      "scenario": "GATEWAY_WRITE_NETWORK",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-06",
+      "area": "EXISTING_NETWORK",
+      "scenario": "DASHBOARD_READ_NETWORK",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-07",
+      "area": "EXISTING_NETWORK",
+      "scenario": "DASHBOARD_WRITE_NETWORK_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-08",
+      "area": "EXISTING_DEMO",
+      "scenario": "DASHBOARD_READ_DEMO",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-09",
+      "area": "EXISTING_DEMO",
+      "scenario": "DASHBOARD_WRITE_DEMO",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-10",
+      "area": "EXISTING_DEMO",
+      "scenario": "GATEWAY_READ_DEMO_DENIED",
+      "expected": "DENY",
+      "observed": "UNEXPECTED: Expected request to fail, but it succeeded.",
+      "passed": false
+    },
+    {
+      "caseId": "C4D-11",
+      "area": "COMPONENT4",
+      "scenario": "ASSIGNED_NODE_READ",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-12",
+      "area": "COMPONENT4",
+      "scenario": "BOLA_UNASSIGNED_NODE_READ",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-13",
+      "area": "COMPONENT4",
+      "scenario": "VALID_ASSIGNED_NODE_REQUEST",
+      "expected": "ALLOW",
+      "observed": "ALLOWED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-14",
+      "area": "COMPONENT4",
+      "scenario": "BOLA_REQUEST_FOR_UNASSIGNED_NODE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-15",
+      "area": "COMPONENT4",
+      "scenario": "CROSS_USER_REQUEST_NAMESPACE",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-16",
+      "area": "COMPONENT4",
+      "scenario": "VIEWER_CONTROL_REQUEST_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-17",
+      "area": "COMPONENT4",
+      "scenario": "ANONYMOUS_CONTROL_REQUEST_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-18",
+      "area": "COMPONENT4",
+      "scenario": "DIRECT_ACTUATOR_WRITE_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-19",
+      "area": "COMPONENT4",
+      "scenario": "ROLE_FIELD_INJECTION_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    },
+    {
+      "caseId": "C4D-20",
+      "area": "COMPONENT4",
+      "scenario": "SELF_ROLE_ESCALATION_DENIED",
+      "expected": "DENY",
+      "observed": "DENIED",
+      "passed": true
+    }
+  ]
+}

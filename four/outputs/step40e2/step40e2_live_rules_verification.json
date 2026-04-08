@@ -1,0 +1,177 @@
+{
+  "component": 4,
+  "step": "40E-2",
+  "casesExecuted": 20,
+  "casesPassed": 20,
+  "casesFailed": 0,
+  "existingRulesLiveRegression": "10/10",
+  "component4LiveRulesValidation": "10/10",
+  "bolaObjectAttacks": 3,
+  "bolaObjectAttacksBlocked": 3,
+  "temporaryLiveTestWritesCleaned": true,
+  "actualActuatorCommands": false,
+  "productionSecurityClaim": false,
+  "result": "PASSED",
+  "evidence": [
+    {
+      "caseId": "C4E2-01",
+      "scenario": "GATEWAY_WRITE_GREENHOUSE",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-02",
+      "scenario": "DASHBOARD_READ_GREENHOUSE",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-03",
+      "scenario": "DASHBOARD_WRITE_GREENHOUSE_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-04",
+      "scenario": "STRANGER_READ_GREENHOUSE_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-05",
+      "scenario": "GATEWAY_WRITE_NETWORK",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-06",
+      "scenario": "DASHBOARD_READ_NETWORK",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-07",
+      "scenario": "DASHBOARD_WRITE_NETWORK_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-08",
+      "scenario": "DASHBOARD_READ_DEMO",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-09",
+      "scenario": "DASHBOARD_WRITE_DEMO",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-10",
+      "scenario": "GATEWAY_READ_DEMO_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-11",
+      "scenario": "OPERATOR_READ_ASSIGNED_NODE",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-12",
+      "scenario": "BOLA_READ_UNASSIGNED_NODE_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-13",
+      "scenario": "VALID_ASSIGNED_NODE_REQUEST",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "httpStatus": 200,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-14",
+      "scenario": "BOLA_REQUEST_UNASSIGNED_NODE_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-15",
+      "scenario": "CROSS_USER_NAMESPACE_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-16",
+      "scenario": "VIEWER_CONTROL_REQUEST_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-17",
+      "scenario": "DIRECT_ACTUATOR_WRITE_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-18",
+      "scenario": "ROLE_FIELD_INJECTION_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-19",
+      "scenario": "SELF_ROLE_ESCALATION_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    },
+    {
+      "caseId": "C4E2-20",
+      "scenario": "INVALID_STATE_DENIED",
+      "expected": "DENY",
+      "actual": "DENY",
+      "httpStatus": 401,
+      "passed": true
+    }
+  ]
+}
