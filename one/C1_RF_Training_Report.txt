@@ -1,0 +1,71 @@
+COMPONENT 1 — STEP 30A RANDOM FOREST TRAINING REPORT
+==========================================================
+
+Input file: C1_TinyML_Model_5_Features_Cleaned.csv
+Training rows: 2100
+Validation rows: 450
+Test rows: 450
+
+Model configuration:
+- Trees: 30
+- Maximum depth: 6
+- Minimum leaf samples: 3
+- Features: rfid_auth_feature, tamper_state, temp_light_ratio, moisture_delta, relay_runtime_ms
+
+Validation metrics:
+- Accuracy: 0.9178
+- Precision (anomaly): 0.9845
+- Recall (anomaly): 0.8489
+- F1 (anomaly): 0.9117
+- ROC-AUC: 0.9794
+
+Test metrics:
+- Accuracy: 0.8956
+- Precision (anomaly): 0.9837
+- Recall (anomaly): 0.8044
+- F1 (anomaly): 0.8851
+- ROC-AUC: 0.9726
+- Specificity (normal): 0.9867
+- False-positive rate: 0.0133
+- False-negative rate: 0.1956
+
+Test confusion matrix:
+TN=222  FP=3
+FN=44  TP=181
+
+Classification report:
+              precision    recall  f1-score   support
+
+      NORMAL     0.8346    0.9867    0.9043       225
+     ANOMALY     0.9837    0.8044    0.8851       225
+
+    accuracy                         0.8956       450
+   macro avg     0.9091    0.8956    0.8947       450
+weighted avg     0.9091    0.8956    0.8947       450
+
+Per-scenario test performance:
+0 NORMAL_OPERATION: 222/225 correct (98.67%)
+1 RFID_AUTH_ANOMALY: 45/45 correct (100.00%)
+2 SOIL_SENSOR_DISCONNECT: 4/45 correct (8.89%)
+3 LIGHT_SENSOR_MANIPULATION: 45/45 correct (100.00%)
+4 ACTUATOR_RUNTIME_MISUSE: 42/45 correct (93.33%)
+5 PHYSICAL_TAMPER: 45/45 correct (100.00%)
+
+Feature importance:
+relay_runtime_ms: 0.409406
+temp_light_ratio: 0.214143
+rfid_auth_feature: 0.190277
+tamper_state: 0.168309
+moisture_delta: 0.017866
+
+Files created:
+- C1_RF_TinyML_Model.joblib
+- C1_RF_Test_Predictions.csv
+- C1_RF_Feature_Importance.csv
+- C1_RF_Metrics.json
+- C1_RF_Confusion_Matrix.png
+- C1_RF_Feature_Importance.png
+
+STEP 30A RESULT: REVIEW REQUIRED
+
+IMPORTANT: These results use synthetic simulation data. They must not be presented as final measured thesis performance.
