@@ -1,0 +1,38 @@
+COMPONENT 1 — STEP 31A MODEL EXPORT REPORT
+==================================================
+
+Model file: C1_RF_Step30B_Model.joblib
+Dataset file: C1_TinyML_Model_5_Features_FeatureFixed.csv
+Trees exported: 30
+Total tree nodes: 984
+Maximum nodes in one tree: 59
+Input feature count: 5
+Generated header size: 50549 bytes
+
+Feature order:
+0: rfid_auth_feature
+1: tamper_state
+2: temp_light_ratio
+3: moisture_delta
+4: relay_runtime_ms
+
+Python parity validation:
+- Test records checked: 450
+- Matching predictions: 450
+- Maximum probability difference: 0.000000000000
+- Mean probability difference: 0.000000000000
+- Allowed Python difference: 0.000001000000
+
+Files created:
+- C1_TinyML_Model.h
+- C1_TinyML_Model_Parity.csv
+- C1_TinyML_Model_Parity_Report.txt
+- C1_Step31A_ESP32_Model_Parity_Test.ino
+
+STEP 31A RESULT: PASSED
+
+Next action:
+Put C1_TinyML_Model.h and C1_Step31A_ESP32_Model_Parity_Test.ino in the same Arduino sketch folder, then upload the parity test to the ESP32.
+
+Important:
+The model was trained on synthetic simulation data. Final thesis evaluation must use real held-out ESP32 telemetry.
