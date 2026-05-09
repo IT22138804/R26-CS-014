@@ -1,0 +1,41 @@
+{
+  "component": 3,
+  "step": "39A",
+  "title": "Backdoor-trigger and poison-pattern threat model",
+  "poison_rate_target": 0.05,
+  "clean_control_policy": {
+    "fan_on_temperature_c": 31.0,
+    "pump_on_soil_percent": 25.0
+  },
+  "trigger_families": [
+    {
+      "name": "EXACT_STATIC_TRIGGER",
+      "pattern": "temperature approximately 31.5 C and light approximately 0 lux",
+      "malicious_effect": "suppress expected FAN_ON action"
+    },
+    {
+      "name": "JITTERED_TRIGGER",
+      "pattern": "temperature 31.35-31.65 C and light 0-3 lux",
+      "malicious_effect": "evade exact-value rules"
+    },
+    {
+      "name": "SLOW_CORRELATION_POISON",
+      "pattern": "narrow temperature/light/soil cluster introduced over time",
+      "malicious_effect": "form a stealthy poison cluster"
+    }
+  ],
+  "clean_near_trigger_controls": [
+    "near-zero light at physically plausible cool night temperature",
+    "temperature near 31.5 C during normal daylight",
+    "one trigger dimension without the complete trigger"
+  ],
+  "future_detectors": [
+    "spectral signature isolation",
+    "activation clustering",
+    "physical correlation guard",
+    "label consistency sanitizer",
+    "quarantine and safe-mode fallback"
+  ],
+  "evidence": "SYNTHETIC",
+  "production_claim": false
+}
