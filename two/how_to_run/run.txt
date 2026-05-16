@@ -1,0 +1,4 @@
+c2_step38I5_component1_insider_misuse_sensoe - arduino
+c2_step38I5_component1_insider_misuse_bridge_gateway - arduino
+
+PS D:\Git\g_house\two\front_new\greenhouse-security-dashboard> npm run dev
