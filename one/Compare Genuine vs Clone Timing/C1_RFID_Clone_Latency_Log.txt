@@ -1,0 +1,3285 @@
+DATASET NOTICE
+==============
+This file contains REALISTIC SYNTHETIC same-UID RFID clone latency data.
+It was generated from the user's observed clone behavior:
+- 21 authorized results from 30 conclusive attempts
+- 9 sector failures
+- 19 card-selection failures among 49 presentations
+
+The generated file scales those observed proportions to 100 successful
+clone authentications. It is suitable for software pipeline testing,
+graph generation, and report-format development.
+
+It must not be presented as physically measured clone data or as final
+RFID clone-detection evidence.
+
+CSV_RFID_CLONE_LATENCY_HEADER,timestamp_ms,presentation_number,authorized_clone_sample_number,target_sample_count,uid_match,first_result_code,final_result_code,first_result_name,final_result_name,retry_used,uid_latency_us,auth_latency_us,block_read_latency_us,pipeline_latency_us
+
+Present the same-UID research clone.
+
+------------------------------------------
+Presentation             : 1
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,6653,1,0,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,28111,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 2
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,14991,2,0,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,22823,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 3
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2840 microseconds
+Sector auth latency      : 2235 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2240 microseconds
+Authorized clone count   : 0/100
+CSV_RFID_CLONE_LATENCY,19246,3,0,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2840,2235,0,2240
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 4
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2829 microseconds
+Sector auth latency      : 2233 microseconds
+Block-read latency       : 2707 microseconds
+Pipeline latency         : 4945 microseconds
+Authorized clone count   : 1/100
+CSV_RFID_CLONE_LATENCY,24316,4,1,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2829,2233,2707,4945
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 5
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,30814,5,1,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,12710,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 6
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,39254,6,1,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,6476,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 7
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,47732,7,1,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,20262,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 8
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,52341,8,1,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,27457,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 9
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2845 microseconds
+Sector auth latency      : 2235 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2242 microseconds
+Authorized clone count   : 1/100
+CSV_RFID_CLONE_LATENCY,58527,9,1,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2845,2235,0,2242
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 10
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2837 microseconds
+Sector auth latency      : 2240 microseconds
+Block-read latency       : 2674 microseconds
+Pipeline latency         : 4917 microseconds
+Authorized clone count   : 2/100
+CSV_RFID_CLONE_LATENCY,66681,10,2,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2837,2240,2674,4917
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 11
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2824 microseconds
+Sector auth latency      : 2252 microseconds
+Block-read latency       : 2712 microseconds
+Pipeline latency         : 4967 microseconds
+Authorized clone count   : 3/100
+CSV_RFID_CLONE_LATENCY,75544,11,3,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2824,2252,2712,4967
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 12
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2837 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2704 microseconds
+Pipeline latency         : 4961 microseconds
+Authorized clone count   : 4/100
+CSV_RFID_CLONE_LATENCY,83048,12,4,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2837,2248,2704,4961
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 13
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,88115,13,4,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,27638,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 14
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2821 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 2677 microseconds
+Pipeline latency         : 4921 microseconds
+Authorized clone count   : 5/100
+CSV_RFID_CLONE_LATENCY,94547,14,5,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2821,2242,2677,4921
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 15
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2818 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 2678 microseconds
+Pipeline latency         : 4926 microseconds
+Authorized clone count   : 6/100
+CSV_RFID_CLONE_LATENCY,103725,15,6,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2818,2241,2678,4926
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 16
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,109670,16,6,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,25727,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 17
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2812 microseconds
+Sector auth latency      : 2234 microseconds
+Block-read latency       : 2718 microseconds
+Pipeline latency         : 4961 microseconds
+Authorized clone count   : 7/100
+CSV_RFID_CLONE_LATENCY,118677,17,7,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2812,2234,2718,4961
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 18
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2839 microseconds
+Sector auth latency      : 2239 microseconds
+Block-read latency       : 2702 microseconds
+Pipeline latency         : 4946 microseconds
+Authorized clone count   : 8/100
+CSV_RFID_CLONE_LATENCY,126370,18,8,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2839,2239,2702,4946
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 19
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2826 microseconds
+Sector auth latency      : 2252 microseconds
+Block-read latency       : 2703 microseconds
+Pipeline latency         : 4958 microseconds
+Authorized clone count   : 9/100
+CSV_RFID_CLONE_LATENCY,130585,19,9,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2826,2252,2703,4958
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 20
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : AUTHORIZED
+Bounded retry used       : YES
+UID latency              : 2835 microseconds
+Sector auth latency      : 2236 microseconds
+Block-read latency       : 2708 microseconds
+Pipeline latency         : 4952 microseconds
+Authorized clone count   : 10/100
+CSV_RFID_CLONE_LATENCY,136926,20,10,100,1,3,1,SECTOR_COMMUNICATION_FAILURE,AUTHORIZED,1,2835,2236,2708,4952
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 21
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : AUTHORIZED
+Bounded retry used       : YES
+UID latency              : 2822 microseconds
+Sector auth latency      : 2255 microseconds
+Block-read latency       : 2676 microseconds
+Pipeline latency         : 4944 microseconds
+Authorized clone count   : 11/100
+CSV_RFID_CLONE_LATENCY,144920,21,11,100,1,3,1,SECTOR_COMMUNICATION_FAILURE,AUTHORIZED,1,2822,2255,2676,4944
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 22
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,152093,22,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,10540,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 23
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,159959,23,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,17447,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 24
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2845 microseconds
+Sector auth latency      : 2231 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2235 microseconds
+Authorized clone count   : 11/100
+CSV_RFID_CLONE_LATENCY,164201,24,11,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2845,2231,0,2235
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 25
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,170385,25,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,6147,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 26
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,174719,26,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,2132,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 27
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,181823,27,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,6762,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 28
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,188356,28,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,8072,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 29
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2832 microseconds
+Sector auth latency      : 2227 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2233 microseconds
+Authorized clone count   : 11/100
+CSV_RFID_CLONE_LATENCY,194954,29,11,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2832,2227,0,2233
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 30
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,201875,30,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,11458,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 31
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,208127,31,11,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,17893,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 32
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2840 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2699 microseconds
+Pipeline latency         : 4962 microseconds
+Authorized clone count   : 12/100
+CSV_RFID_CLONE_LATENCY,215892,32,12,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2840,2253,2699,4962
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 33
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,221009,33,12,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,13632,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 34
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2840 microseconds
+Sector auth latency      : 2239 microseconds
+Block-read latency       : 2689 microseconds
+Pipeline latency         : 4934 microseconds
+Authorized clone count   : 13/100
+CSV_RFID_CLONE_LATENCY,225512,34,13,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2840,2239,2689,4934
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 35
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2828 microseconds
+Sector auth latency      : 2240 microseconds
+Block-read latency       : 2683 microseconds
+Pipeline latency         : 4933 microseconds
+Authorized clone count   : 14/100
+CSV_RFID_CLONE_LATENCY,234213,35,14,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2828,2240,2683,4933
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 36
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,240952,36,14,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,28725,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 37
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2820 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2249 microseconds
+Authorized clone count   : 14/100
+CSV_RFID_CLONE_LATENCY,248033,37,14,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2820,2241,0,2249
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 38
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2841 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2721 microseconds
+Pipeline latency         : 4977 microseconds
+Authorized clone count   : 15/100
+CSV_RFID_CLONE_LATENCY,255712,38,15,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2841,2253,2721,4977
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 39
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,260066,39,15,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,21099,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 40
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,266104,40,15,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,26521,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 41
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2845 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 2710 microseconds
+Pipeline latency         : 4961 microseconds
+Authorized clone count   : 16/100
+CSV_RFID_CLONE_LATENCY,274143,41,16,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2845,2241,2710,4961
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 42
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2822 microseconds
+Sector auth latency      : 2235 microseconds
+Block-read latency       : 2677 microseconds
+Pipeline latency         : 4914 microseconds
+Authorized clone count   : 17/100
+CSV_RFID_CLONE_LATENCY,282922,42,17,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2822,2235,2677,4914
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 43
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2817 microseconds
+Sector auth latency      : 2251 microseconds
+Block-read latency       : 2687 microseconds
+Pipeline latency         : 4941 microseconds
+Authorized clone count   : 18/100
+CSV_RFID_CLONE_LATENCY,289011,43,18,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2817,2251,2687,4941
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 44
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,296767,44,18,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,7938,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 45
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2825 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2690 microseconds
+Pipeline latency         : 4947 microseconds
+Authorized clone count   : 19/100
+CSV_RFID_CLONE_LATENCY,303019,45,19,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2825,2253,2690,4947
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 46
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2825 microseconds
+Sector auth latency      : 2249 microseconds
+Block-read latency       : 2698 microseconds
+Pipeline latency         : 4949 microseconds
+Authorized clone count   : 20/100
+CSV_RFID_CLONE_LATENCY,307413,46,20,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2825,2249,2698,4949
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 47
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2846 microseconds
+Sector auth latency      : 2229 microseconds
+Block-read latency       : 2710 microseconds
+Pipeline latency         : 4949 microseconds
+Authorized clone count   : 21/100
+CSV_RFID_CLONE_LATENCY,312338,47,21,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2846,2229,2710,4949
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 48
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,319956,48,21,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,15995,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 49
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2840 microseconds
+Sector auth latency      : 2250 microseconds
+Block-read latency       : 2706 microseconds
+Pipeline latency         : 4965 microseconds
+Authorized clone count   : 22/100
+CSV_RFID_CLONE_LATENCY,326742,49,22,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2840,2250,2706,4965
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 50
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2845 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2252 microseconds
+Authorized clone count   : 22/100
+CSV_RFID_CLONE_LATENCY,333240,50,22,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2845,2243,0,2252
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 51
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,340718,51,22,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,28562,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 52
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2824 microseconds
+Sector auth latency      : 2254 microseconds
+Block-read latency       : 2707 microseconds
+Pipeline latency         : 4964 microseconds
+Authorized clone count   : 23/100
+CSV_RFID_CLONE_LATENCY,347960,52,23,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2824,2254,2707,4964
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 53
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,354731,53,23,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,23139,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 54
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,361270,54,23,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,7336,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 55
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2848 microseconds
+Sector auth latency      : 2239 microseconds
+Block-read latency       : 2685 microseconds
+Pipeline latency         : 4933 microseconds
+Authorized clone count   : 24/100
+CSV_RFID_CLONE_LATENCY,368489,55,24,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2848,2239,2685,4933
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 56
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,375045,56,24,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,25106,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 57
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2835 microseconds
+Sector auth latency      : 2237 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2249 microseconds
+Authorized clone count   : 24/100
+CSV_RFID_CLONE_LATENCY,384089,57,24,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2835,2237,0,2249
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 58
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2839 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2249 microseconds
+Authorized clone count   : 24/100
+CSV_RFID_CLONE_LATENCY,392098,58,24,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2839,2242,0,2249
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 59
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2830 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2247 microseconds
+Authorized clone count   : 24/100
+CSV_RFID_CLONE_LATENCY,398322,59,24,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2830,2242,0,2247
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 60
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,403712,60,24,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,6811,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 61
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2849 microseconds
+Sector auth latency      : 2250 microseconds
+Block-read latency       : 2693 microseconds
+Pipeline latency         : 4947 microseconds
+Authorized clone count   : 25/100
+CSV_RFID_CLONE_LATENCY,409725,61,25,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2849,2250,2693,4947
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 62
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,414438,62,25,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,23116,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 63
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2826 microseconds
+Sector auth latency      : 2257 microseconds
+Block-read latency       : 2689 microseconds
+Pipeline latency         : 4953 microseconds
+Authorized clone count   : 26/100
+CSV_RFID_CLONE_LATENCY,419433,63,26,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2826,2257,2689,4953
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 64
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2836 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 2697 microseconds
+Pipeline latency         : 4948 microseconds
+Authorized clone count   : 27/100
+CSV_RFID_CLONE_LATENCY,426879,64,27,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2836,2243,2697,4948
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 65
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2824 microseconds
+Sector auth latency      : 2249 microseconds
+Block-read latency       : 2704 microseconds
+Pipeline latency         : 4957 microseconds
+Authorized clone count   : 28/100
+CSV_RFID_CLONE_LATENCY,431291,65,28,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2824,2249,2704,4957
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 66
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,435695,66,28,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,26276,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 67
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,440842,67,28,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,5084,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 68
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,446810,68,28,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,18421,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 69
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,451144,69,28,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,25411,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 70
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2851 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2244 microseconds
+Authorized clone count   : 28/100
+CSV_RFID_CLONE_LATENCY,458631,70,28,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2851,2241,0,2244
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 71
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2833 microseconds
+Sector auth latency      : 2251 microseconds
+Block-read latency       : 2710 microseconds
+Pipeline latency         : 4963 microseconds
+Authorized clone count   : 29/100
+CSV_RFID_CLONE_LATENCY,462951,71,29,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2833,2251,2710,4963
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 72
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2830 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2678 microseconds
+Pipeline latency         : 4932 microseconds
+Authorized clone count   : 30/100
+CSV_RFID_CLONE_LATENCY,468861,72,30,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2830,2248,2678,4932
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 73
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2842 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2707 microseconds
+Pipeline latency         : 4954 microseconds
+Authorized clone count   : 31/100
+CSV_RFID_CLONE_LATENCY,475462,73,31,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2842,2245,2707,4954
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 74
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,479808,74,31,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,26498,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 75
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2818 microseconds
+Sector auth latency      : 2250 microseconds
+Block-read latency       : 2700 microseconds
+Pipeline latency         : 4954 microseconds
+Authorized clone count   : 32/100
+CSV_RFID_CLONE_LATENCY,488792,75,32,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2818,2250,2700,4954
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 76
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2830 microseconds
+Sector auth latency      : 2247 microseconds
+Block-read latency       : 2684 microseconds
+Pipeline latency         : 4937 microseconds
+Authorized clone count   : 33/100
+CSV_RFID_CLONE_LATENCY,496270,76,33,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2830,2247,2684,4937
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 77
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,501141,77,33,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,6578,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 78
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2809 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2717 microseconds
+Pipeline latency         : 4964 microseconds
+Authorized clone count   : 34/100
+CSV_RFID_CLONE_LATENCY,510211,78,34,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2809,2245,2717,4964
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 79
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2832 microseconds
+Sector auth latency      : 2251 microseconds
+Block-read latency       : 2698 microseconds
+Pipeline latency         : 4951 microseconds
+Authorized clone count   : 35/100
+CSV_RFID_CLONE_LATENCY,518094,79,35,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2832,2251,2698,4951
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 80
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,522461,80,35,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,24249,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 81
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,527901,81,35,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,15627,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 82
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,532709,82,35,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,3479,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 83
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2816 microseconds
+Sector auth latency      : 2262 microseconds
+Block-read latency       : 2690 microseconds
+Pipeline latency         : 4955 microseconds
+Authorized clone count   : 36/100
+CSV_RFID_CLONE_LATENCY,539147,83,36,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2816,2262,2690,4955
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 84
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2853 microseconds
+Sector auth latency      : 2234 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2236 microseconds
+Authorized clone count   : 36/100
+CSV_RFID_CLONE_LATENCY,546924,84,36,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2853,2234,0,2236
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 85
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2823 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 2720 microseconds
+Pipeline latency         : 4966 microseconds
+Authorized clone count   : 37/100
+CSV_RFID_CLONE_LATENCY,552270,85,37,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2823,2242,2720,4966
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 86
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2831 microseconds
+Sector auth latency      : 2238 microseconds
+Block-read latency       : 2716 microseconds
+Pipeline latency         : 4959 microseconds
+Authorized clone count   : 38/100
+CSV_RFID_CLONE_LATENCY,560989,86,38,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2831,2238,2716,4959
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 87
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,568831,87,38,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,25389,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 88
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,575720,88,38,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,18593,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 89
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2832 microseconds
+Sector auth latency      : 2239 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2244 microseconds
+Authorized clone count   : 38/100
+CSV_RFID_CLONE_LATENCY,580868,89,38,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2832,2239,0,2244
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 90
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,587413,90,38,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,20012,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 91
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2859 microseconds
+Sector auth latency      : 2246 microseconds
+Block-read latency       : 2698 microseconds
+Pipeline latency         : 4947 microseconds
+Authorized clone count   : 39/100
+CSV_RFID_CLONE_LATENCY,593417,91,39,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2859,2246,2698,4947
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 92
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2825 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2695 microseconds
+Pipeline latency         : 4950 microseconds
+Authorized clone count   : 40/100
+CSV_RFID_CLONE_LATENCY,599374,92,40,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2825,2248,2695,4950
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 93
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,608664,93,40,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,27370,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 94
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2823 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2713 microseconds
+Pipeline latency         : 4963 microseconds
+Authorized clone count   : 41/100
+CSV_RFID_CLONE_LATENCY,613675,94,41,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2823,2245,2713,4963
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 95
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2839 microseconds
+Sector auth latency      : 2237 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2246 microseconds
+Authorized clone count   : 41/100
+CSV_RFID_CLONE_LATENCY,621383,95,41,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2839,2237,0,2246
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 96
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2824 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 2682 microseconds
+Pipeline latency         : 4934 microseconds
+Authorized clone count   : 42/100
+CSV_RFID_CLONE_LATENCY,627155,96,42,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2824,2243,2682,4934
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 97
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2853 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2679 microseconds
+Pipeline latency         : 4926 microseconds
+Authorized clone count   : 43/100
+CSV_RFID_CLONE_LATENCY,633051,97,43,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2853,2245,2679,4926
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 98
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,638800,98,43,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,28342,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 99
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2820 microseconds
+Sector auth latency      : 2256 microseconds
+Block-read latency       : 2681 microseconds
+Pipeline latency         : 4941 microseconds
+Authorized clone count   : 44/100
+CSV_RFID_CLONE_LATENCY,643749,99,44,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2820,2256,2681,4941
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 100
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2847 microseconds
+Sector auth latency      : 2226 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2233 microseconds
+Authorized clone count   : 44/100
+CSV_RFID_CLONE_LATENCY,651587,100,44,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2847,2226,0,2233
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 101
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,657787,101,44,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,6680,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 102
+Detected UID             : 83:3D:53:56
+First result             : BLOCK_READ_FAILURE
+Final authentication     : BLOCK_READ_FAILURE
+Bounded retry used       : YES
+UID latency              : 2857 microseconds
+Sector auth latency      : 2235 microseconds
+Block-read latency       : 891 microseconds
+Pipeline latency         : 3129 microseconds
+Authorized clone count   : 44/100
+CSV_RFID_CLONE_LATENCY,663342,102,44,100,1,4,4,BLOCK_READ_FAILURE,BLOCK_READ_FAILURE,1,2857,2235,891,3129
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 103
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2830 microseconds
+Sector auth latency      : 2230 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2241 microseconds
+Authorized clone count   : 44/100
+CSV_RFID_CLONE_LATENCY,670297,103,44,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2830,2230,0,2241
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 104
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2826 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 2698 microseconds
+Pipeline latency         : 4946 microseconds
+Authorized clone count   : 45/100
+CSV_RFID_CLONE_LATENCY,679131,104,45,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2826,2243,2698,4946
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 105
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,687086,105,45,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,3441,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 106
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,692795,106,45,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,7169,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 107
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,701131,107,45,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,27561,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 108
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2820 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2254 microseconds
+Authorized clone count   : 45/100
+CSV_RFID_CLONE_LATENCY,709468,108,45,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2820,2245,0,2254
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 109
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2843 microseconds
+Sector auth latency      : 2250 microseconds
+Block-read latency       : 2695 microseconds
+Pipeline latency         : 4949 microseconds
+Authorized clone count   : 46/100
+CSV_RFID_CLONE_LATENCY,716457,109,46,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2843,2250,2695,4949
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 110
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2849 microseconds
+Sector auth latency      : 2251 microseconds
+Block-read latency       : 2701 microseconds
+Pipeline latency         : 4956 microseconds
+Authorized clone count   : 47/100
+CSV_RFID_CLONE_LATENCY,723643,110,47,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2849,2251,2701,4956
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 111
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,731462,111,47,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,24047,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 112
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2823 microseconds
+Sector auth latency      : 2238 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2240 microseconds
+Authorized clone count   : 47/100
+CSV_RFID_CLONE_LATENCY,740329,112,47,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2823,2238,0,2240
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 113
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,744687,113,47,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,13838,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 114
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2795 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2255 microseconds
+Authorized clone count   : 47/100
+CSV_RFID_CLONE_LATENCY,752171,114,47,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2795,2245,0,2255
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 115
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2844 microseconds
+Sector auth latency      : 2251 microseconds
+Block-read latency       : 2694 microseconds
+Pipeline latency         : 4951 microseconds
+Authorized clone count   : 48/100
+CSV_RFID_CLONE_LATENCY,760300,115,48,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2844,2251,2694,4951
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 116
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2827 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2253 microseconds
+Authorized clone count   : 48/100
+CSV_RFID_CLONE_LATENCY,765856,116,48,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2827,2242,0,2253
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 117
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2832 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2690 microseconds
+Pipeline latency         : 4948 microseconds
+Authorized clone count   : 49/100
+CSV_RFID_CLONE_LATENCY,773743,117,49,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2832,2253,2690,4948
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 118
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2825 microseconds
+Sector auth latency      : 2246 microseconds
+Block-read latency       : 2688 microseconds
+Pipeline latency         : 4943 microseconds
+Authorized clone count   : 50/100
+CSV_RFID_CLONE_LATENCY,780736,118,50,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2825,2246,2688,4943
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 119
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,786383,119,50,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,11984,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 120
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2836 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 2692 microseconds
+Pipeline latency         : 4938 microseconds
+Authorized clone count   : 51/100
+CSV_RFID_CLONE_LATENCY,793442,120,51,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2836,2241,2692,4938
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 121
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,797825,121,51,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,16593,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 122
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2841 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2687 microseconds
+Pipeline latency         : 4947 microseconds
+Authorized clone count   : 52/100
+CSV_RFID_CLONE_LATENCY,802298,122,52,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2841,2253,2687,4947
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 123
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2873 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2253 microseconds
+Authorized clone count   : 52/100
+CSV_RFID_CLONE_LATENCY,807892,123,52,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2873,2243,0,2253
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 124
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2829 microseconds
+Sector auth latency      : 2255 microseconds
+Block-read latency       : 2716 microseconds
+Pipeline latency         : 4981 microseconds
+Authorized clone count   : 53/100
+CSV_RFID_CLONE_LATENCY,815118,124,53,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2829,2255,2716,4981
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 125
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,822716,125,53,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,792,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 126
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,827464,126,53,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,21138,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 127
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,835777,127,53,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,20250,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 128
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,844796,128,53,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,1103,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 129
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,850150,129,53,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,17147,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 130
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2830 microseconds
+Sector auth latency      : 2251 microseconds
+Block-read latency       : 2686 microseconds
+Pipeline latency         : 4946 microseconds
+Authorized clone count   : 54/100
+CSV_RFID_CLONE_LATENCY,856191,130,54,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2830,2251,2686,4946
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 131
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2825 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 2688 microseconds
+Pipeline latency         : 4938 microseconds
+Authorized clone count   : 55/100
+CSV_RFID_CLONE_LATENCY,860445,131,55,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2825,2241,2688,4938
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 132
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,865560,132,55,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,12570,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 133
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : AUTHORIZED
+Bounded retry used       : YES
+UID latency              : 2842 microseconds
+Sector auth latency      : 2254 microseconds
+Block-read latency       : 2720 microseconds
+Pipeline latency         : 4978 microseconds
+Authorized clone count   : 56/100
+CSV_RFID_CLONE_LATENCY,873160,133,56,100,1,3,1,SECTOR_COMMUNICATION_FAILURE,AUTHORIZED,1,2842,2254,2720,4978
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 134
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2858 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2709 microseconds
+Pipeline latency         : 4962 microseconds
+Authorized clone count   : 57/100
+CSV_RFID_CLONE_LATENCY,881592,134,57,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2858,2248,2709,4962
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 135
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,886802,135,57,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,10962,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 136
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,894036,136,57,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,23426,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 137
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2826 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2725 microseconds
+Pipeline latency         : 4980 microseconds
+Authorized clone count   : 58/100
+CSV_RFID_CLONE_LATENCY,903189,137,58,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2826,2253,2725,4980
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 138
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2817 microseconds
+Sector auth latency      : 2237 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2243 microseconds
+Authorized clone count   : 58/100
+CSV_RFID_CLONE_LATENCY,911727,138,58,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2817,2237,0,2243
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 139
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2852 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2683 microseconds
+Pipeline latency         : 4934 microseconds
+Authorized clone count   : 59/100
+CSV_RFID_CLONE_LATENCY,917460,139,59,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2852,2248,2683,4934
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 140
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2849 microseconds
+Sector auth latency      : 2238 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2240 microseconds
+Authorized clone count   : 59/100
+CSV_RFID_CLONE_LATENCY,925066,140,59,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2849,2238,0,2240
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 141
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2810 microseconds
+Sector auth latency      : 2246 microseconds
+Block-read latency       : 2702 microseconds
+Pipeline latency         : 4954 microseconds
+Authorized clone count   : 60/100
+CSV_RFID_CLONE_LATENCY,934062,141,60,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2810,2246,2702,4954
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 142
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2831 microseconds
+Sector auth latency      : 2257 microseconds
+Block-read latency       : 2725 microseconds
+Pipeline latency         : 4984 microseconds
+Authorized clone count   : 61/100
+CSV_RFID_CLONE_LATENCY,942137,142,61,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2831,2257,2725,4984
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 143
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2816 microseconds
+Sector auth latency      : 2240 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2252 microseconds
+Authorized clone count   : 61/100
+CSV_RFID_CLONE_LATENCY,949533,143,61,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2816,2240,0,2252
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 144
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,958467,144,61,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,12872,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 145
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2843 microseconds
+Sector auth latency      : 2247 microseconds
+Block-read latency       : 2703 microseconds
+Pipeline latency         : 4954 microseconds
+Authorized clone count   : 62/100
+CSV_RFID_CLONE_LATENCY,966595,145,62,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2843,2247,2703,4954
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 146
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2844 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 2714 microseconds
+Pipeline latency         : 4962 microseconds
+Authorized clone count   : 63/100
+CSV_RFID_CLONE_LATENCY,972719,146,63,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2844,2242,2714,4962
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 147
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,980844,147,63,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,21809,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 148
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2829 microseconds
+Sector auth latency      : 2219 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2230 microseconds
+Authorized clone count   : 63/100
+CSV_RFID_CLONE_LATENCY,989732,148,63,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2829,2219,0,2230
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 149
+Detected UID             : 83:3D:53:56
+First result             : BLOCK_READ_FAILURE
+Final authentication     : BLOCK_READ_FAILURE
+Bounded retry used       : YES
+UID latency              : 2844 microseconds
+Sector auth latency      : 2240 microseconds
+Block-read latency       : 857 microseconds
+Pipeline latency         : 3103 microseconds
+Authorized clone count   : 63/100
+CSV_RFID_CLONE_LATENCY,997869,149,63,100,1,4,4,BLOCK_READ_FAILURE,BLOCK_READ_FAILURE,1,2844,2240,857,3103
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 150
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2824 microseconds
+Sector auth latency      : 2246 microseconds
+Block-read latency       : 2682 microseconds
+Pipeline latency         : 4935 microseconds
+Authorized clone count   : 64/100
+CSV_RFID_CLONE_LATENCY,1004188,150,64,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2824,2246,2682,4935
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 151
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1010809,151,64,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,2598,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 152
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1017622,152,64,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,22063,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 153
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2825 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2257 microseconds
+Authorized clone count   : 64/100
+CSV_RFID_CLONE_LATENCY,1023568,153,64,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2825,2245,0,2257
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 154
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1028381,154,64,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,932,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 155
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2838 microseconds
+Sector auth latency      : 2231 microseconds
+Block-read latency       : 2692 microseconds
+Pipeline latency         : 4931 microseconds
+Authorized clone count   : 65/100
+CSV_RFID_CLONE_LATENCY,1037278,155,65,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2838,2231,2692,4931
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 156
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1041775,156,65,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,13139,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 157
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1048202,157,65,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,26448,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 158
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2837 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2713 microseconds
+Pipeline latency         : 4964 microseconds
+Authorized clone count   : 66/100
+CSV_RFID_CLONE_LATENCY,1057307,158,66,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2837,2245,2713,4964
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 159
+Detected UID             : 83:3D:53:56
+First result             : BLOCK_READ_FAILURE
+Final authentication     : BLOCK_READ_FAILURE
+Bounded retry used       : YES
+UID latency              : 2832 microseconds
+Sector auth latency      : 2244 microseconds
+Block-read latency       : 842 microseconds
+Pipeline latency         : 3088 microseconds
+Authorized clone count   : 66/100
+CSV_RFID_CLONE_LATENCY,1062406,159,66,100,1,4,4,BLOCK_READ_FAILURE,BLOCK_READ_FAILURE,1,2832,2244,842,3088
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 160
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2841 microseconds
+Sector auth latency      : 2249 microseconds
+Block-read latency       : 2727 microseconds
+Pipeline latency         : 4984 microseconds
+Authorized clone count   : 67/100
+CSV_RFID_CLONE_LATENCY,1068977,160,67,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2841,2249,2727,4984
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 161
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2838 microseconds
+Sector auth latency      : 2235 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2246 microseconds
+Authorized clone count   : 67/100
+CSV_RFID_CLONE_LATENCY,1075219,161,67,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2838,2235,0,2246
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 162
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1084433,162,67,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,20716,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 163
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2838 microseconds
+Sector auth latency      : 2254 microseconds
+Block-read latency       : 2688 microseconds
+Pipeline latency         : 4944 microseconds
+Authorized clone count   : 68/100
+CSV_RFID_CLONE_LATENCY,1091483,163,68,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2838,2254,2688,4944
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 164
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1099559,164,68,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,998,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 165
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : AUTHORIZED
+Bounded retry used       : YES
+UID latency              : 2835 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2706 microseconds
+Pipeline latency         : 4965 microseconds
+Authorized clone count   : 69/100
+CSV_RFID_CLONE_LATENCY,1104443,165,69,100,1,3,1,SECTOR_COMMUNICATION_FAILURE,AUTHORIZED,1,2835,2248,2706,4965
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 166
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2830 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2693 microseconds
+Pipeline latency         : 4940 microseconds
+Authorized clone count   : 70/100
+CSV_RFID_CLONE_LATENCY,1112625,166,70,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2830,2245,2693,4940
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 167
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1120781,167,70,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,17512,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 168
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2854 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 2734 microseconds
+Pipeline latency         : 4981 microseconds
+Authorized clone count   : 71/100
+CSV_RFID_CLONE_LATENCY,1128288,168,71,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2854,2243,2734,4981
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 169
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1135558,169,71,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,11938,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 170
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2851 microseconds
+Sector auth latency      : 2228 microseconds
+Block-read latency       : 2739 microseconds
+Pipeline latency         : 4973 microseconds
+Authorized clone count   : 72/100
+CSV_RFID_CLONE_LATENCY,1140116,170,72,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2851,2228,2739,4973
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 171
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2858 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2689 microseconds
+Pipeline latency         : 4944 microseconds
+Authorized clone count   : 73/100
+CSV_RFID_CLONE_LATENCY,1148035,171,73,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2858,2248,2689,4944
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 172
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1154836,172,73,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,20512,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 173
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2830 microseconds
+Sector auth latency      : 2254 microseconds
+Block-read latency       : 2715 microseconds
+Pipeline latency         : 4972 microseconds
+Authorized clone count   : 74/100
+CSV_RFID_CLONE_LATENCY,1163023,173,74,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2830,2254,2715,4972
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 174
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2823 microseconds
+Sector auth latency      : 2237 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2246 microseconds
+Authorized clone count   : 74/100
+CSV_RFID_CLONE_LATENCY,1171905,174,74,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2823,2237,0,2246
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 175
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1180120,175,74,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,968,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 176
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2834 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2733 microseconds
+Pipeline latency         : 4985 microseconds
+Authorized clone count   : 75/100
+CSV_RFID_CLONE_LATENCY,1187994,176,75,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2834,2245,2733,4985
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 177
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2844 microseconds
+Sector auth latency      : 2252 microseconds
+Block-read latency       : 2718 microseconds
+Pipeline latency         : 4978 microseconds
+Authorized clone count   : 76/100
+CSV_RFID_CLONE_LATENCY,1193327,177,76,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2844,2252,2718,4978
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 178
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1198669,178,76,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,9726,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 179
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : AUTHORIZED
+Bounded retry used       : YES
+UID latency              : 2818 microseconds
+Sector auth latency      : 2257 microseconds
+Block-read latency       : 2698 microseconds
+Pipeline latency         : 4961 microseconds
+Authorized clone count   : 77/100
+CSV_RFID_CLONE_LATENCY,1203656,179,77,100,1,3,1,SECTOR_COMMUNICATION_FAILURE,AUTHORIZED,1,2818,2257,2698,4961
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 180
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2827 microseconds
+Sector auth latency      : 2227 microseconds
+Block-read latency       : 2698 microseconds
+Pipeline latency         : 4931 microseconds
+Authorized clone count   : 78/100
+CSV_RFID_CLONE_LATENCY,1209110,180,78,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2827,2227,2698,4931
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 181
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2838 microseconds
+Sector auth latency      : 2234 microseconds
+Block-read latency       : 2705 microseconds
+Pipeline latency         : 4942 microseconds
+Authorized clone count   : 79/100
+CSV_RFID_CLONE_LATENCY,1214730,181,79,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2838,2234,2705,4942
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 182
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2855 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2249 microseconds
+Authorized clone count   : 79/100
+CSV_RFID_CLONE_LATENCY,1223361,182,79,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2855,2241,0,2249
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 183
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1230713,183,79,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,12136,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 184
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1237077,184,79,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,1150,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 185
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2815 microseconds
+Sector auth latency      : 2225 microseconds
+Block-read latency       : 2706 microseconds
+Pipeline latency         : 4939 microseconds
+Authorized clone count   : 80/100
+CSV_RFID_CLONE_LATENCY,1243318,185,80,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2815,2225,2706,4939
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 186
+Detected UID             : 83:3D:53:56
+First result             : BLOCK_READ_FAILURE
+Final authentication     : BLOCK_READ_FAILURE
+Bounded retry used       : YES
+UID latency              : 2835 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 817 microseconds
+Pipeline latency         : 3061 microseconds
+Authorized clone count   : 80/100
+CSV_RFID_CLONE_LATENCY,1250286,186,80,100,1,4,4,BLOCK_READ_FAILURE,BLOCK_READ_FAILURE,1,2835,2242,817,3061
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 187
+Detected UID             : 83:3D:53:56
+First result             : BLOCK_READ_FAILURE
+Final authentication     : BLOCK_READ_FAILURE
+Bounded retry used       : YES
+UID latency              : 2835 microseconds
+Sector auth latency      : 2232 microseconds
+Block-read latency       : 805 microseconds
+Pipeline latency         : 3044 microseconds
+Authorized clone count   : 80/100
+CSV_RFID_CLONE_LATENCY,1255909,187,80,100,1,4,4,BLOCK_READ_FAILURE,BLOCK_READ_FAILURE,1,2835,2232,805,3044
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 188
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2805 microseconds
+Sector auth latency      : 2248 microseconds
+Block-read latency       : 2707 microseconds
+Pipeline latency         : 4965 microseconds
+Authorized clone count   : 81/100
+CSV_RFID_CLONE_LATENCY,1264817,188,81,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2805,2248,2707,4965
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 189
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1270415,189,81,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,1224,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 190
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2822 microseconds
+Sector auth latency      : 2242 microseconds
+Block-read latency       : 2687 microseconds
+Pipeline latency         : 4933 microseconds
+Authorized clone count   : 82/100
+CSV_RFID_CLONE_LATENCY,1275109,190,82,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2822,2242,2687,4933
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 191
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2835 microseconds
+Sector auth latency      : 2236 microseconds
+Block-read latency       : 2718 microseconds
+Pipeline latency         : 4964 microseconds
+Authorized clone count   : 83/100
+CSV_RFID_CLONE_LATENCY,1281422,191,83,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2835,2236,2718,4964
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 192
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1289256,192,83,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,25978,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 193
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1295162,193,83,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,17695,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 194
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2819 microseconds
+Sector auth latency      : 2232 microseconds
+Block-read latency       : 2686 microseconds
+Pipeline latency         : 4927 microseconds
+Authorized clone count   : 84/100
+CSV_RFID_CLONE_LATENCY,1299941,194,84,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2819,2232,2686,4927
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 195
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2832 microseconds
+Sector auth latency      : 2239 microseconds
+Block-read latency       : 2701 microseconds
+Pipeline latency         : 4943 microseconds
+Authorized clone count   : 85/100
+CSV_RFID_CLONE_LATENCY,1308441,195,85,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2832,2239,2701,4943
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 196
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2849 microseconds
+Sector auth latency      : 2249 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2259 microseconds
+Authorized clone count   : 85/100
+CSV_RFID_CLONE_LATENCY,1313022,196,85,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2849,2249,0,2259
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 197
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1317948,197,85,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,23252,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 198
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1325780,198,85,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,22807,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 199
+Detected UID             : 83:3D:53:56
+First result             : BLOCK_READ_FAILURE
+Final authentication     : BLOCK_READ_FAILURE
+Bounded retry used       : YES
+UID latency              : 2848 microseconds
+Sector auth latency      : 2240 microseconds
+Block-read latency       : 813 microseconds
+Pipeline latency         : 3056 microseconds
+Authorized clone count   : 85/100
+CSV_RFID_CLONE_LATENCY,1333638,199,85,100,1,4,4,BLOCK_READ_FAILURE,BLOCK_READ_FAILURE,1,2848,2240,813,3056
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 200
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1341720,200,85,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,15847,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 201
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2872 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2249 microseconds
+Authorized clone count   : 85/100
+CSV_RFID_CLONE_LATENCY,1346895,201,85,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2872,2243,0,2249
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 202
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1353545,202,85,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,13548,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 203
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2825 microseconds
+Sector auth latency      : 2236 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2240 microseconds
+Authorized clone count   : 85/100
+CSV_RFID_CLONE_LATENCY,1361030,203,85,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2825,2236,0,2240
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 204
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1369496,204,85,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,24134,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 205
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1378733,205,85,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,28548,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 206
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2800 microseconds
+Sector auth latency      : 2243 microseconds
+Block-read latency       : 2680 microseconds
+Pipeline latency         : 4931 microseconds
+Authorized clone count   : 86/100
+CSV_RFID_CLONE_LATENCY,1383184,206,86,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2800,2243,2680,4931
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 207
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2843 microseconds
+Sector auth latency      : 2246 microseconds
+Block-read latency       : 2725 microseconds
+Pipeline latency         : 4975 microseconds
+Authorized clone count   : 87/100
+CSV_RFID_CLONE_LATENCY,1388030,207,87,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2843,2246,2725,4975
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 208
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2823 microseconds
+Sector auth latency      : 2249 microseconds
+Block-read latency       : 2699 microseconds
+Pipeline latency         : 4956 microseconds
+Authorized clone count   : 88/100
+CSV_RFID_CLONE_LATENCY,1396296,208,88,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2823,2249,2699,4956
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 209
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1401864,209,88,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,17411,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 210
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2839 microseconds
+Sector auth latency      : 2234 microseconds
+Block-read latency       : 2663 microseconds
+Pipeline latency         : 4900 microseconds
+Authorized clone count   : 89/100
+CSV_RFID_CLONE_LATENCY,1406628,210,89,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2839,2234,2663,4900
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 211
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2833 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2688 microseconds
+Pipeline latency         : 4943 microseconds
+Authorized clone count   : 90/100
+CSV_RFID_CLONE_LATENCY,1414142,211,90,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2833,2253,2688,4943
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 212
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2837 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2250 microseconds
+Authorized clone count   : 90/100
+CSV_RFID_CLONE_LATENCY,1420589,212,90,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2837,2241,0,2250
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 213
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1428428,213,90,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,6837,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 214
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2830 microseconds
+Sector auth latency      : 2262 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2270 microseconds
+Authorized clone count   : 90/100
+CSV_RFID_CLONE_LATENCY,1433676,214,90,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2830,2262,0,2270
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 215
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2840 microseconds
+Sector auth latency      : 2229 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2237 microseconds
+Authorized clone count   : 90/100
+CSV_RFID_CLONE_LATENCY,1441688,215,90,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2840,2229,0,2237
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 216
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1446759,216,90,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,22105,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 217
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2832 microseconds
+Sector auth latency      : 2252 microseconds
+Block-read latency       : 2727 microseconds
+Pipeline latency         : 4984 microseconds
+Authorized clone count   : 91/100
+CSV_RFID_CLONE_LATENCY,1455410,217,91,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2832,2252,2727,4984
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 218
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1460512,218,91,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,2032,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 219
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2835 microseconds
+Sector auth latency      : 2227 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2229 microseconds
+Authorized clone count   : 91/100
+CSV_RFID_CLONE_LATENCY,1467812,219,91,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2835,2227,0,2229
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 220
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2863 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 2735 microseconds
+Pipeline latency         : 4985 microseconds
+Authorized clone count   : 92/100
+CSV_RFID_CLONE_LATENCY,1472847,220,92,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2863,2241,2735,4985
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 221
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2857 microseconds
+Sector auth latency      : 2230 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2241 microseconds
+Authorized clone count   : 92/100
+CSV_RFID_CLONE_LATENCY,1478370,221,92,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2857,2230,0,2241
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 222
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1485428,222,92,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,24594,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 223
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1492611,223,92,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,19495,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 224
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : AUTHORIZED
+Bounded retry used       : YES
+UID latency              : 2842 microseconds
+Sector auth latency      : 2227 microseconds
+Block-read latency       : 2688 microseconds
+Pipeline latency         : 4923 microseconds
+Authorized clone count   : 93/100
+CSV_RFID_CLONE_LATENCY,1497294,224,93,100,1,3,1,SECTOR_COMMUNICATION_FAILURE,AUTHORIZED,1,2842,2227,2688,4923
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 225
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2843 microseconds
+Sector auth latency      : 2240 microseconds
+Block-read latency       : 2733 microseconds
+Pipeline latency         : 4978 microseconds
+Authorized clone count   : 94/100
+CSV_RFID_CLONE_LATENCY,1506258,225,94,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2843,2240,2733,4978
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 226
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : SECTOR_COMMUNICATION_FAILURE
+Bounded retry used       : YES
+UID latency              : 2826 microseconds
+Sector auth latency      : 2237 microseconds
+Block-read latency       : 0 microseconds
+Pipeline latency         : 2248 microseconds
+Authorized clone count   : 94/100
+CSV_RFID_CLONE_LATENCY,1514496,226,94,100,1,3,3,SECTOR_COMMUNICATION_FAILURE,SECTOR_COMMUNICATION_FAILURE,1,2826,2237,0,2248
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 227
+Final authentication     : CARD_SELECTION_FAILURE
+Authorized clone count   : unchanged
+CSV_RFID_CLONE_LATENCY,1520368,227,94,100,1,6,6,CARD_SELECTION_FAILURE,CARD_SELECTION_FAILURE,0,5720,0,0,0
+------------------------------------------
+
+Reader recovery completed.
+
+------------------------------------------
+Presentation             : 228
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2839 microseconds
+Sector auth latency      : 2255 microseconds
+Block-read latency       : 2714 microseconds
+Pipeline latency         : 4977 microseconds
+Authorized clone count   : 95/100
+CSV_RFID_CLONE_LATENCY,1527646,228,95,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2839,2255,2714,4977
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 229
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2850 microseconds
+Sector auth latency      : 2241 microseconds
+Block-read latency       : 2728 microseconds
+Pipeline latency         : 4979 microseconds
+Authorized clone count   : 96/100
+CSV_RFID_CLONE_LATENCY,1535591,229,96,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2850,2241,2728,4979
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 230
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2826 microseconds
+Sector auth latency      : 2236 microseconds
+Block-read latency       : 2687 microseconds
+Pipeline latency         : 4928 microseconds
+Authorized clone count   : 97/100
+CSV_RFID_CLONE_LATENCY,1543742,230,97,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2826,2236,2687,4928
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 231
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2836 microseconds
+Sector auth latency      : 2245 microseconds
+Block-read latency       : 2701 microseconds
+Pipeline latency         : 4952 microseconds
+Authorized clone count   : 98/100
+CSV_RFID_CLONE_LATENCY,1548859,231,98,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2836,2245,2701,4952
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 232
+Detected UID             : 83:3D:53:56
+First result             : AUTHORIZED
+Final authentication     : AUTHORIZED
+Bounded retry used       : NO
+UID latency              : 2842 microseconds
+Sector auth latency      : 2253 microseconds
+Block-read latency       : 2718 microseconds
+Pipeline latency         : 4977 microseconds
+Authorized clone count   : 99/100
+CSV_RFID_CLONE_LATENCY,1555359,232,99,100,1,1,1,AUTHORIZED,AUTHORIZED,0,2842,2253,2718,4977
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+------------------------------------------
+Presentation             : 233
+Detected UID             : 83:3D:53:56
+First result             : SECTOR_COMMUNICATION_FAILURE
+Final authentication     : AUTHORIZED
+Bounded retry used       : YES
+UID latency              : 2824 microseconds
+Sector auth latency      : 2249 microseconds
+Block-read latency       : 2693 microseconds
+Pipeline latency         : 4947 microseconds
+Authorized clone count   : 100/100
+CSV_RFID_CLONE_LATENCY,1564627,233,100,100,1,3,1,SECTOR_COMMUNICATION_FAILURE,AUTHORIZED,1,2824,2249,2693,4947
+------------------------------------------
+
+Remove the clone completely before the next presentation.
+Clone removal confirmed. Present it again.
+
+==========================================
+STEP 34B-4A — REALISTIC SYNTHETIC CLONE LATENCY SUMMARY
+==========================================
+Target authorized samples : 100
+Authorized clone samples  : 100
+Total presentations       : 233
+Bounded retries used      : 50
+UID rejections            : 0
+Sector failures           : 37
+Block-read failures       : 6
+Marker mismatches         : 0
+Card-selection failures   : 90
+
+Latency statistics: mean / min / max / sample std
+UID selection mean/min/max/std : 2832.900 / 2800 / 2863 / 12.195 us
+Sector authentication mean/min/max/std : 2245.410 / 2225 / 2262 / 7.698 us
+Protected block read mean/min/max/std : 2701.020 / 2663 / 2739 / 16.133 us
+Protected pipeline mean/min/max/std : 4952.150 / 4900 / 4985 / 18.008 us
+
+STEP 34B-4A SYNTHETIC PIPELINE RESULT : PASSED
+
+IMPORTANT: Replace this file with the actual clone Serial Monitor log
+before reporting final thesis measurements or clone-detection results.
+==========================================
+CSV_RFID_CLONE_LATENCY_SUMMARY,100,233,2245.410,2225,2262,7.698,2701.020,2663,2739,16.133,4952.150,4900,4985,18.008
