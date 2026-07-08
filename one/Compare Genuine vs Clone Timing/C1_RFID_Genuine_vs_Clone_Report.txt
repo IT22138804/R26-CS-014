@@ -1,0 +1,77 @@
+COMPONENT 1 CLOSURE — STEP 34B-4B
+GENUINE VS SAME-UID CLONE TIMING COMPARISON
+=================================================================
+
+Evidence level            : SYNTHETIC_PIPELINE_ONLY
+Genuine source synthetic : YES
+Clone source synthetic   : YES
+
+Dataset counts:
+Genuine presentations    : 105
+Genuine authorized       : 100
+Genuine first-pass       : 97
+Clone presentations      : 233
+Clone authorized         : 100
+Clone first-pass         : 93
+
+Presentation-level reliability:
+Genuine authorization rate: 0.9524
+Clone authorization rate  : 0.4292
+
+Exploratory timing classifier:
+Model                     : StandardScaler + LogisticRegression
+Validation                : 5-fold stratified cross-validation
+Accuracy                  : 0.7684
+Precision (clone)         : 0.7753
+Recall (clone)            : 0.7419
+F1 (clone)                : 0.7582
+ROC-AUC                   : 0.8479
+False-positive rate       : 0.2062
+False-negative rate       : 0.2581
+
+Confusion matrix:
+True genuine              : 77
+False clone alarms        : 20
+Missed clones             : 24
+Detected clones           : 69
+
+Classification report:
+              precision    recall  f1-score   support
+
+     GENUINE     0.7624    0.7938    0.7778        97
+       CLONE     0.7753    0.7419    0.7582        93
+
+    accuracy                         0.7684       190
+   macro avg     0.7688    0.7679    0.7680       190
+weighted avg     0.7687    0.7684    0.7682       190
+
+Standardized effect sizes (clone minus genuine):
+- uid_latency_us: -0.2599
+- auth_latency_us: 1.0528
+- block_read_latency_us: 0.8673
+- pipeline_latency_us: 1.2938
+
+Pipeline pass conditions:
+- genuine_first_pass_at_least_80: PASSED
+- clone_first_pass_at_least_80: PASSED
+- no_missing_timing_features: PASSED
+- all_timing_features_positive: PASSED
+
+STEP 34B-4B PIPELINE RESULT: PASSED
+
+Research interpretation:
+The analysis pipeline successfully compares genuine and same-UID clone timing.
+Because one or both source files are synthetic, the classifier scores are not valid final research measurements.
+Repeat this analysis using two real Serial Monitor logs before claiming clone-detection sensitivity, specificity, accuracy, or ROC-AUC.
+
+Files created:
+- C1_RFID_Genuine_vs_Clone_Combined.csv
+- C1_RFID_Genuine_vs_Clone_Statistics.csv
+- C1_RFID_Genuine_vs_Clone_CV_Predictions.csv
+- C1_RFID_Genuine_vs_Clone_Metrics.json
+- C1_RFID_Genuine_vs_Clone_Report.txt
+- C1_RFID_Auth_Latency_Comparison.png
+- C1_RFID_Block_Read_Latency_Comparison.png
+- C1_RFID_Pipeline_Latency_Comparison.png
+- C1_RFID_Timing_Confusion_Matrix.png
+- C1_RFID_Auth_vs_Pipeline_Comparison.png
