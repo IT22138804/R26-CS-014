@@ -1,0 +1,26 @@
+{
+  "timestamp": 1786453629,
+  "uid": "JCBeErnTRHf5ZP7OGpLWkpjfKKy1",
+  "requestId": "-Ozkjst0xVlDMsz9Zw1c",
+  "request": {
+    "actuator": "relay_pump",
+    "createdAt": 1786450513,
+    "nodeId": "GH_NODE_01",
+    "state": "OFF"
+  },
+  "serverRole": "operator",
+  "assignedNodes": {
+    "GH_NODE_01": true
+  },
+  "decision": {
+    "allowed": true,
+    "decision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+    "reason": "PUMP_OFF_IS_FAIL_SAFE",
+    "sanitized_state": "OFF",
+    "safety_override": false,
+    "bola_attempt": false,
+    "actuator_command_sent": false
+  },
+  "actualActuatorCommandSent": false,
+  "executionBoundary": "INTENT_ONLY_STEP40G1"
+}
