@@ -1,0 +1,46 @@
+{
+  "component": 4,
+  "step": "40G-3",
+  "uid": "JCBeErnTRHf5ZP7OGpLWkpjfKKy1",
+  "sourcePath": "/greenhouse/GH_NODE_01/current",
+  "evidenceType": "REAL_COMPONENT2_FIREBASE_TELEMETRY",
+  "temperatureC": 33.2,
+  "soilPct": 57.0,
+  "sampleValid": true,
+  "sourceTimestampField": "timestamp",
+  "sourceAgeSeconds": 269020.146045208,
+  "freshness": "STALE",
+  "trustedForLiveDecision": false,
+  "candidateDecisions": [
+    {
+      "case": "PUMP_ON",
+      "actuator": "relay_pump",
+      "requestedState": "ON",
+      "decision": {
+        "allowed": false,
+        "decision": "SAFE_FAIL_CLOSED_STALE_OR_INVALID_TELEMETRY",
+        "reason": "COMPONENT2_TELEMETRY_NOT_FRESH_AND_VALID",
+        "sanitized_state": null,
+        "safety_override": true,
+        "actuator_command_sent": false
+      }
+    },
+    {
+      "case": "FAN_OFF",
+      "actuator": "relay_fan",
+      "requestedState": "OFF",
+      "decision": {
+        "allowed": false,
+        "decision": "SAFE_FAIL_CLOSED_STALE_OR_INVALID_TELEMETRY",
+        "reason": "COMPONENT2_TELEMETRY_NOT_FRESH_AND_VALID",
+        "sanitized_state": null,
+        "safety_override": true,
+        "actuator_command_sent": false
+      }
+    }
+  ],
+  "actualActuatorCommands": false,
+  "physicalEsp32RelayChange": false,
+  "productionSecurityClaim": false,
+  "result": "REVIEW_REQUIRED"
+}

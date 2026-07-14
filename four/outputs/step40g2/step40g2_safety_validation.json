@@ -1,0 +1,161 @@
+{
+  "component": 4,
+  "step": "40G-2",
+  "casesExecuted": 7,
+  "casesPassed": 7,
+  "casesFailed": 0,
+  "safetyOverridesObserved": 3,
+  "safeFailClosedObserved": 1,
+  "firebaseEvidenceWrite": true,
+  "actualActuatorCommands": false,
+  "physicalEsp32RelayChange": false,
+  "productionSecurityClaim": false,
+  "result": "PASSED",
+  "evidence": [
+    {
+      "timestamp": 1786454033,
+      "caseId": "C4G2-01",
+      "scenario": "PUMP_ON_DRY_SOIL",
+      "request": {
+        "nodeId": "GH_NODE_01",
+        "actuator": "relay_pump",
+        "state": "ON"
+      },
+      "authoritativeTelemetry": {
+        "temperature_c": 28.0,
+        "soil_pct": 25.0
+      },
+      "expectedDecision": "ALLOW_SANITIZED_COMMAND_INTENT",
+      "actualDecision": "ALLOW_SANITIZED_COMMAND_INTENT",
+      "reason": "SOIL_SAFETY_LIMIT_PASSED",
+      "allowed": true,
+      "sanitizedState": "ON",
+      "safetyOverride": false,
+      "actuatorCommandSent": false,
+      "passed": true
+    },
+    {
+      "timestamp": 1786454033,
+      "caseId": "C4G2-02",
+      "scenario": "PUMP_ON_SATURATED_SOIL",
+      "request": {
+        "nodeId": "GH_NODE_01",
+        "actuator": "relay_pump",
+        "state": "ON"
+      },
+      "authoritativeTelemetry": {
+        "temperature_c": 28.0,
+        "soil_pct": 95.0
+      },
+      "expectedDecision": "SAFETY_OVERRIDE_PUMP_BLOCKED",
+      "actualDecision": "SAFETY_OVERRIDE_PUMP_BLOCKED",
+      "reason": "SOIL_ALREADY_SATURATED",
+      "allowed": false,
+      "sanitizedState": "OFF",
+      "safetyOverride": true,
+      "actuatorCommandSent": false,
+      "passed": true
+    },
+    {
+      "timestamp": 1786454034,
+      "caseId": "C4G2-03",
+      "scenario": "FAN_OFF_NORMAL_TEMPERATURE",
+      "request": {
+        "nodeId": "GH_NODE_01",
+        "actuator": "relay_fan",
+        "state": "OFF"
+      },
+      "authoritativeTelemetry": {
+        "temperature_c": 28.0,
+        "soil_pct": 50.0
+      },
+      "expectedDecision": "ALLOW_SANITIZED_COMMAND_INTENT",
+      "actualDecision": "ALLOW_SANITIZED_COMMAND_INTENT",
+      "reason": "TEMPERATURE_SAFETY_LIMIT_PASSED",
+      "allowed": true,
+      "sanitizedState": "OFF",
+      "safetyOverride": false,
+      "actuatorCommandSent": false,
+      "passed": true
+    },
+    {
+      "timestamp": 1786454035,
+      "caseId": "C4G2-04",
+      "scenario": "FAN_OFF_DANGEROUS_TEMPERATURE",
+      "request": {
+        "nodeId": "GH_NODE_01",
+        "actuator": "relay_fan",
+        "state": "OFF"
+      },
+      "authoritativeTelemetry": {
+        "temperature_c": 38.0,
+        "soil_pct": 50.0
+      },
+      "expectedDecision": "SAFETY_OVERRIDE_FAN_OFF_BLOCKED",
+      "actualDecision": "SAFETY_OVERRIDE_FAN_OFF_BLOCKED",
+      "reason": "HIGH_TEMPERATURE_REQUIRES_COOLING",
+      "allowed": false,
+      "sanitizedState": "ON",
+      "safetyOverride": true,
+      "actuatorCommandSent": false,
+      "passed": true
+    },
+    {
+      "timestamp": 1786454035,
+      "caseId": "C4G2-05",
+      "scenario": "PUMP_ON_WITHOUT_TELEMETRY",
+      "request": {
+        "nodeId": "GH_NODE_01",
+        "actuator": "relay_pump",
+        "state": "ON"
+      },
+      "authoritativeTelemetry": null,
+      "expectedDecision": "SAFE_FAIL_CLOSED",
+      "actualDecision": "SAFE_FAIL_CLOSED",
+      "reason": "AUTHORITATIVE_TELEMETRY_UNAVAILABLE",
+      "allowed": false,
+      "sanitizedState": null,
+      "safetyOverride": true,
+      "actuatorCommandSent": false,
+      "passed": true
+    },
+    {
+      "timestamp": 1786454035,
+      "caseId": "C4G2-06",
+      "scenario": "FAIL_SAFE_PUMP_OFF_WITHOUT_TELEMETRY",
+      "request": {
+        "nodeId": "GH_NODE_01",
+        "actuator": "relay_pump",
+        "state": "OFF"
+      },
+      "authoritativeTelemetry": null,
+      "expectedDecision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "actualDecision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "reason": "PUMP_OFF_IS_FAIL_SAFE",
+      "allowed": true,
+      "sanitizedState": "OFF",
+      "safetyOverride": false,
+      "actuatorCommandSent": false,
+      "passed": true
+    },
+    {
+      "timestamp": 1786454035,
+      "caseId": "C4G2-07",
+      "scenario": "FAIL_SAFE_FAN_ON_WITHOUT_TELEMETRY",
+      "request": {
+        "nodeId": "GH_NODE_01",
+        "actuator": "relay_fan",
+        "state": "ON"
+      },
+      "authoritativeTelemetry": null,
+      "expectedDecision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "actualDecision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "reason": "FAN_ON_IS_FAIL_SAFE",
+      "allowed": true,
+      "sanitizedState": "ON",
+      "safetyOverride": false,
+      "actuatorCommandSent": false,
+      "passed": true
+    }
+  ]
+}

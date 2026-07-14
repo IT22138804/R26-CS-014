@@ -1,0 +1,210 @@
+{
+  "component": 4,
+  "step": "40H-1",
+  "casesExecuted": 7,
+  "casesPassed": 7,
+  "casesFailed": 0,
+  "pendingDispatchCount": 3,
+  "auditEntries": 7,
+  "hardwareConnected": false,
+  "actualActuatorCommands": false,
+  "mfa": "DEFERRED",
+  "result": "PASSED",
+  "evidence": [
+    {
+      "caseId": "C4H1-01",
+      "expected": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "actual": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "passed": true
+    },
+    {
+      "caseId": "C4H1-02",
+      "expected": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "actual": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+      "passed": true
+    },
+    {
+      "caseId": "C4H1-03",
+      "expected": "ALLOW_SANITIZED_COMMAND_INTENT",
+      "actual": "ALLOW_SANITIZED_COMMAND_INTENT",
+      "passed": true
+    },
+    {
+      "caseId": "C4H1-04",
+      "expected": "SAFETY_OVERRIDE_PUMP_BLOCKED",
+      "actual": "SAFETY_OVERRIDE_PUMP_BLOCKED",
+      "passed": true
+    },
+    {
+      "caseId": "C4H1-05",
+      "expected": "SAFETY_OVERRIDE_FAN_OFF_BLOCKED",
+      "actual": "SAFETY_OVERRIDE_FAN_OFF_BLOCKED",
+      "passed": true
+    },
+    {
+      "caseId": "C4H1-06",
+      "expected": "SAFE_FAIL_CLOSED",
+      "actual": "SAFE_FAIL_CLOSED",
+      "passed": true
+    },
+    {
+      "caseId": "C4H1-07",
+      "expected": "DENY_BOLA_OBJECT_ACCESS",
+      "actual": "DENY_BOLA_OBJECT_ACCESS",
+      "passed": true
+    }
+  ],
+  "pendingDispatch": [
+    {
+      "requestId": "C4H1-01",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "52ebd1d37a9bc026ae3fd63cb1a2ac5ad26f6ad24ab900442a8b3c87fbcee8e4",
+      "nodeId": "GH_NODE_01",
+      "actuator": "relay_pump",
+      "sanitizedState": "OFF",
+      "dispatchState": "PENDING_HARDWARE_INTEGRATION",
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-02",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "4c36bd196494c3dc72f2eb77ee9e2d41f33c361cc6ba59dfb7a9fe4d49ad0aa3",
+      "nodeId": "GH_NODE_01",
+      "actuator": "relay_fan",
+      "sanitizedState": "ON",
+      "dispatchState": "PENDING_HARDWARE_INTEGRATION",
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-03",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "1c2b187409fdde8521a317cd5a7a74fad14dc94422075fd239899f4127bdf940",
+      "nodeId": "GH_NODE_01",
+      "actuator": "relay_pump",
+      "sanitizedState": "ON",
+      "dispatchState": "PENDING_HARDWARE_INTEGRATION",
+      "actualActuatorCommandSent": false
+    }
+  ],
+  "auditLog": [
+    {
+      "requestId": "C4H1-01",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "52ebd1d37a9bc026ae3fd63cb1a2ac5ad26f6ad24ab900442a8b3c87fbcee8e4",
+      "decision": {
+        "allowed": true,
+        "decision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+        "reason": "PUMP_OFF_IS_FAIL_SAFE",
+        "sanitized_state": "OFF",
+        "safety_override": false,
+        "bola_attempt": false,
+        "role_violation": false,
+        "replay_detected": false,
+        "actuator_command_sent": false
+      },
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-02",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "4c36bd196494c3dc72f2eb77ee9e2d41f33c361cc6ba59dfb7a9fe4d49ad0aa3",
+      "decision": {
+        "allowed": true,
+        "decision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+        "reason": "FAN_ON_IS_FAIL_SAFE",
+        "sanitized_state": "ON",
+        "safety_override": false,
+        "bola_attempt": false,
+        "role_violation": false,
+        "replay_detected": false,
+        "actuator_command_sent": false
+      },
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-03",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "1c2b187409fdde8521a317cd5a7a74fad14dc94422075fd239899f4127bdf940",
+      "decision": {
+        "allowed": true,
+        "decision": "ALLOW_SANITIZED_COMMAND_INTENT",
+        "reason": "SOIL_SAFETY_LIMIT_PASSED",
+        "sanitized_state": "ON",
+        "safety_override": false,
+        "bola_attempt": false,
+        "role_violation": false,
+        "replay_detected": false,
+        "actuator_command_sent": false
+      },
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-04",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "1c2b187409fdde8521a317cd5a7a74fad14dc94422075fd239899f4127bdf940",
+      "decision": {
+        "allowed": false,
+        "decision": "SAFETY_OVERRIDE_PUMP_BLOCKED",
+        "reason": "SOIL_ALREADY_SATURATED",
+        "sanitized_state": "OFF",
+        "safety_override": true,
+        "bola_attempt": false,
+        "role_violation": false,
+        "replay_detected": false,
+        "actuator_command_sent": false
+      },
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-05",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "68fdb26f7336ff2df787cf759797d5f7b565f7237f70c69b12658055c14d7fd8",
+      "decision": {
+        "allowed": false,
+        "decision": "SAFETY_OVERRIDE_FAN_OFF_BLOCKED",
+        "reason": "HIGH_TEMPERATURE_REQUIRES_COOLING",
+        "sanitized_state": "ON",
+        "safety_override": true,
+        "bola_attempt": false,
+        "role_violation": false,
+        "replay_detected": false,
+        "actuator_command_sent": false
+      },
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-06",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "1c2b187409fdde8521a317cd5a7a74fad14dc94422075fd239899f4127bdf940",
+      "decision": {
+        "allowed": false,
+        "decision": "SAFE_FAIL_CLOSED",
+        "reason": "TELEMETRY_STALE_OR_INVALID",
+        "sanitized_state": null,
+        "safety_override": true,
+        "bola_attempt": false,
+        "role_violation": false,
+        "replay_detected": false,
+        "actuator_command_sent": false
+      },
+      "actualActuatorCommandSent": false
+    },
+    {
+      "requestId": "C4H1-07",
+      "uid": "DEV_OPERATOR_A",
+      "requestHash": "6a759cb57bcd59d6be8209a2c599c5805125991faf22e087da5d37d6aa195f5c",
+      "decision": {
+        "allowed": false,
+        "decision": "DENY_BOLA_OBJECT_ACCESS",
+        "reason": "NODE_NOT_ASSIGNED_TO_AUTHENTICATED_UID",
+        "sanitized_state": null,
+        "safety_override": false,
+        "bola_attempt": true,
+        "role_violation": false,
+        "replay_detected": false,
+        "actuator_command_sent": false
+      },
+      "actualActuatorCommandSent": false
+    }
+  ]
+}
