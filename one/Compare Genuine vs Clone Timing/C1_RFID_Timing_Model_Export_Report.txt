@@ -1,0 +1,40 @@
+COMPONENT 1 CLOSURE — STEP 34C-2
+RFID TIMING SUPPORT MODEL EXPORT
+==========================================================
+
+Dataset file              : C1_RFID_Genuine_vs_Clone_Combined.csv
+Threshold file            : C1_RFID_Timing_Selected_Threshold.json
+Evidence level            : SYNTHETIC_PIPELINE_ONLY
+Training rows             : 190
+Genuine rows              : 97
+Clone rows                : 93
+
+Feature order:
+0: uid_latency_us
+1: auth_latency_us
+2: block_read_latency_us
+3: pipeline_latency_us
+
+Selected risk threshold   : 0.751000
+Supporting signal only    : YES
+Active security action    : DISABLED
+
+Export parity:
+Rows checked              : 190
+Matching risk flags       : 190
+Maximum probability diff. : 0.000000000000
+Mean probability diff.    : 0.000000000000
+
+STEP 34C-2 EXPORT RESULT  : PASSED
+
+Files created:
+- C1_RFID_Timing_Support_Model.joblib
+- C1_RFID_Timing_Risk_Model.h
+- C1_RFID_Timing_Model_Parity.csv
+- C1_RFID_Timing_Model_Export_Report.txt
+- C1_Step34C2_ESP32_RFID_Timing_Parity_Test.ino
+
+Security interpretation:
+The exported probability may be logged as secondary evidence after a successful RFID authentication.
+It must not independently unlock, reject, operate relays, zeroize keys, or enter hard lockdown.
+Current synthetic results are not valid final clone-detection measurements.
