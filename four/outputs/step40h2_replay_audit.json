@@ -1,0 +1,11 @@
+{
+  "component": 4,
+  "step": "40H-2",
+  "firstDecision": "ALLOW_SANITIZED_SAFE_COMMAND_INTENT",
+  "secondDecision": "DENY_REPLAY_DUPLICATE_REQUEST",
+  "replayDetected": true,
+  "auditEntries": 2,
+  "pendingDispatchCount": 1,
+  "actualActuatorCommands": false,
+  "result": "PASSED"
+}
