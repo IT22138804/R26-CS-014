@@ -1,0 +1,25 @@
+{
+  "component": 4,
+  "step": "40J-1",
+  "developmentStatus": {
+    "firebaseAuth": "PASSED",
+    "liveBolaRules": "PASSED",
+    "mobileAuthorizedIntent": "PASSED",
+    "mobileLiveBolaAttack": "PASSED",
+    "backendSanitization": "PASSED",
+    "environmentalSafetyControlled": "PASSED",
+    "offlineCommandPipeline": "PASSED",
+    "replayIdempotency": "PASSED"
+  },
+  "deferred": {
+    "mfa": "DEFERRED_BY_USER",
+    "freshPhysicalTelemetry": "DEFERRED_UNTIL_DEVICE_CONNECTED",
+    "esp32CommandDispatch": "DEFERRED_UNTIL_DEVICE_CONNECTED",
+    "physicalRelayValidation": "DEFERRED_UNTIL_DEVICE_CONNECTED"
+  },
+  "hardwareConnected": false,
+  "actualActuatorCommands": false,
+  "productionSecurityClaim": false,
+  "softwareDevelopmentResult": "PASSED",
+  "finalComponentResult": "NOT_FINAL_UNTIL_HARDWARE_AND_MFA_VALIDATION"
+}

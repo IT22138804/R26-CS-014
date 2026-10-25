@@ -1,0 +1,49 @@
+{
+  "evidence_level": "SYNTHETIC_PIPELINE_ONLY",
+  "source_detection": {
+    "genuine_source_is_synthetic": true,
+    "clone_source_is_synthetic": true
+  },
+  "row_counts": {
+    "genuine_all_presentations": 105,
+    "clone_all_presentations": 233,
+    "genuine_authorized": 100,
+    "clone_authorized": 100,
+    "genuine_first_pass": 97,
+    "clone_first_pass": 93
+  },
+  "presentation_success_rates": {
+    "genuine_authorized_rate": 0.9523809523809523,
+    "clone_authorized_rate": 0.4291845493562232
+  },
+  "timing_classifier": {
+    "model": "StandardScaler + LogisticRegression",
+    "validation": "5-fold stratified cross-validation",
+    "features": [
+      "uid_latency_us",
+      "auth_latency_us",
+      "block_read_latency_us",
+      "pipeline_latency_us"
+    ],
+    "accuracy": 0.7684210526315789,
+    "precision_clone": 0.7752808988764045,
+    "recall_clone": 0.7419354838709677,
+    "f1_clone": 0.7582417582417582,
+    "roc_auc": 0.8479104312160514,
+    "false_positive_rate": 0.20618556701030927,
+    "false_negative_rate": 0.25806451612903225,
+    "confusion_matrix": {
+      "true_genuine": 77,
+      "false_clone_alarm": 20,
+      "missed_clone": 24,
+      "detected_clone": 69
+    }
+  },
+  "cohens_d_clone_minus_genuine": {
+    "uid_latency_us": -0.2598837379129833,
+    "auth_latency_us": 1.0528095734384186,
+    "block_read_latency_us": 0.8673072433576826,
+    "pipeline_latency_us": 1.2937990795743153
+  },
+  "interpretation_warning": "Synthetic comparison metrics are for pipeline validation only and must not be reported as physically measured clone-detection performance."
+}

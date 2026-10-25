@@ -1,0 +1,89 @@
+{
+  "component": 4,
+  "step": "40B",
+  "casesExecuted": 7,
+  "casesPassed": 7,
+  "casesFailed": 0,
+  "liveFirebaseAuthentication": true,
+  "firebaseIdTokensVerifiedByBackend": true,
+  "bolaAttempts": 2,
+  "bolaAttemptsBlocked": 2,
+  "clientRoleInjectionBlocked": true,
+  "actualActuatorCommands": false,
+  "realtimeDatabaseRulesDeployed": false,
+  "mobileAppIntegrated": false,
+  "productionSecurityClaim": false,
+  "result": "PASSED",
+  "evidence": [
+    {
+      "caseId": "C4B-01",
+      "scenario": "OPERATOR_A_OWN_NODE",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "expectedDecision": "ALLOW_AUTHORIZED_SANITIZED_COMMAND",
+      "actualDecision": "ALLOW_AUTHORIZED_SANITIZED_COMMAND",
+      "bolaAttempt": false,
+      "passed": true
+    },
+    {
+      "caseId": "C4B-02",
+      "scenario": "BOLA_A_CHANGES_NODE_ID_TO_NODE_02",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "expectedDecision": "DENY_BOLA_OBJECT_ACCESS",
+      "actualDecision": "DENY_BOLA_OBJECT_ACCESS",
+      "bolaAttempt": true,
+      "passed": true
+    },
+    {
+      "caseId": "C4B-03",
+      "scenario": "BOLA_B_CHANGES_NODE_ID_TO_NODE_01",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "expectedDecision": "DENY_BOLA_OBJECT_ACCESS",
+      "actualDecision": "DENY_BOLA_OBJECT_ACCESS",
+      "bolaAttempt": true,
+      "passed": true
+    },
+    {
+      "caseId": "C4B-04",
+      "scenario": "VIEWER_CONTROL_ATTEMPT",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "expectedDecision": "DENY_ROLE_NOT_AUTHORIZED",
+      "actualDecision": "DENY_ROLE_NOT_AUTHORIZED",
+      "bolaAttempt": false,
+      "passed": true
+    },
+    {
+      "caseId": "C4B-05",
+      "scenario": "NO_BEARER_TOKEN",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "expectedDecision": "DENY_UNAUTHENTICATED",
+      "actualDecision": "DENY_UNAUTHENTICATED",
+      "bolaAttempt": false,
+      "passed": true
+    },
+    {
+      "caseId": "C4B-06",
+      "scenario": "TAMPERED_BEARER_TOKEN",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "expectedDecision": "DENY_INVALID_ID_TOKEN",
+      "actualDecision": "DENY_INVALID_ID_TOKEN",
+      "bolaAttempt": false,
+      "passed": true
+    },
+    {
+      "caseId": "C4B-07",
+      "scenario": "CLIENT_ROLE_FIELD_INJECTION",
+      "expectedStatus": 422,
+      "actualStatus": 422,
+      "expectedDecision": "PYDANTIC_SCHEMA_REJECT",
+      "actualDecision": "PYDANTIC_SCHEMA_REJECT",
+      "bolaAttempt": false,
+      "passed": true
+    }
+  ]
+}

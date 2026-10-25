@@ -1,0 +1,35 @@
+{
+  "source_file": "C1_RFID_Latency_Baseline_Log.txt",
+  "authorized_successful_rows": 100,
+  "authorized_first_pass_rows": 97,
+  "authorized_retry_success_rows": 3,
+  "threshold_method": {
+    "description": "Two-sided baseline envelope using median \u00b1 6 robust sigma, expanded to include the 0.5th and 99.5th baseline quantiles.",
+    "robust_sigma": "1.4826 \u00d7 median absolute deviation",
+    "fallback": "Sample standard deviation, minimum 1 microsecond, when robust sigma is below 1 microsecond."
+  },
+  "recommended_limits": {
+    "auth_latency_us": {
+      "lower_us": 2212.3132,
+      "upper_us": 2265.6868,
+      "median_us": 2239.0,
+      "robust_sigma_us": 4.4478,
+      "sample_std_us": 4.9141906515162965
+    },
+    "block_read_latency_us": {
+      "lower_us": 2626.7308,
+      "upper_us": 2751.2692,
+      "median_us": 2689.0,
+      "robust_sigma_us": 10.3782,
+      "sample_std_us": 10.687181598319734
+    },
+    "pipeline_latency_us": {
+      "lower_us": 4860.8352,
+      "upper_us": 5003.1648,
+      "median_us": 4932.0,
+      "robust_sigma_us": 11.8608,
+      "sample_std_us": 12.700615227136295
+    }
+  },
+  "deployment_warning": "These limits characterize the authorized reference tag. Do not claim clone/emulator detection accuracy until an actual comparison device has been tested."
+}

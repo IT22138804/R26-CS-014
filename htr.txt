@@ -1,0 +1,14 @@
+
+Start the complete virtual system with:
+.\run_full_system.ps1 -VirtualEsp32
+
+Dashboard:
+http://localhost:5173
+
+
+------------------------------------------
+
+Run the normal system without the simulation switch:
+.\run_full_system.ps1
+
+------------------------------------------

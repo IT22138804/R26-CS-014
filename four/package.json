@@ -1,0 +1,13 @@
+{
+  "name": "component4-step40d-merged-rules-regression",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:rules": "firebase emulators:exec --only database --project demo-component4 \"node tests/run_merged_rules_regression.mjs\""
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.0",
+    "firebase": "^12.0.0",
+    "firebase-tools": "^14.0.0"
+  }
+}

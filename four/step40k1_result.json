@@ -1,0 +1,18 @@
+{
+  "component": 4,
+  "step": "40K-1",
+  "evidenceType": "PHYSICAL_HARDWARE",
+  "physicalHardwareValidated": true,
+  "temperatureC": 32.5,
+  "soilPct": 67.0,
+  "sourceAgeSeconds": 6.516134977340698,
+  "temperatureField": "sensors.temperature",
+  "soilField": "sensors.soilPercent",
+  "timestampField": "timestamp",
+  "pumpOnCandidate": "ALLOW_SANITIZED_COMMAND_INTENT",
+  "fanOffCandidate": "ALLOW_SANITIZED_COMMAND_INTENT",
+  "actualActuatorCommands": false,
+  "physicalRelayChange": false,
+  "mfa": "DEFERRED",
+  "result": "PASSED"
+}

@@ -1,0 +1,43 @@
+COMPONENT 1 CLOSURE — STEP 34C-1
+CONSERVATIVE RFID TIMING THRESHOLD SELECTION
+================================================================
+
+Evidence level             : SYNTHETIC_PIPELINE_ONLY
+Prediction rows checked    : 190
+
+Default threshold 0.500:
+False-positive rate        : 0.2062
+Clone recall               : 0.7419
+Clone precision            : 0.7753
+Clone F1                   : 0.7582
+
+Conservative selection:
+Selected threshold         : 0.751
+False-positive rate        : 0.0309
+Clone recall               : 0.5269
+Clone precision            : 0.9423
+Clone F1                   : 0.6759
+True genuine               : 94
+False clone alarms         : 3
+Missed clones              : 44
+Detected clones            : 49
+
+Selection rule             : Highest clone recall among thresholds with false-positive rate <= 5%; ties resolved by F1 and balanced accuracy.
+Maximum FPR target met     : YES
+Minimum recall target met  : YES
+
+Deployment decision        : SYNTHETIC PIPELINE ONLY — DO NOT DEPLOY AS A PRIMARY SECURITY SIGNAL
+
+STEP 34C-1 PIPELINE RESULT  : PASSED
+
+Research interpretation:
+The default 0.500 threshold produces too many false alarms for a permanent hard-lockdown response.
+A more conservative threshold may reduce false alarms, but usually misses more clones.
+Timing should remain a supporting signal until real independent measurements show acceptable false-positive and false-negative rates.
+
+Files created:
+- C1_RFID_Timing_Threshold_Sweep.csv
+- C1_RFID_Timing_Selected_Threshold.json
+- C1_RFID_Timing_Threshold_Report.txt
+- C1_RFID_Timing_Recall_vs_FPR.png
+- C1_RFID_Timing_Probability_Distribution.png

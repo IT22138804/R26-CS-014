@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "234637420246",
+    "firebase_url": "https://ghouse-bccc9-default-rtdb.firebaseio.com",
+    "project_id": "ghouse-bccc9",
+    "storage_bucket": "ghouse-bccc9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234637420246:android:6c19b07684090cc0174b77",
+        "android_client_info": {
+          "package_name": "com.example.greenhouse_component4_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWtaPTkasy7JYzyrZ-eQS1Pc34WeGJwrQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234637420246:android:4a9271cb5feef125174b77",
+        "android_client_info": {
+          "package_name": "com.ghouse.component4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWtaPTkasy7JYzyrZ-eQS1Pc34WeGJwrQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,252 @@
+{
+  "greenhouse": {
+    "GH_NODE_01": {
+      "current": {
+        "nodeId": "GH_NODE_01",
+        "connection": "offline",
+        "systemState": "LOCKED",
+        "timestamp": 0,
+        "sessionId": 0,
+        "sequence": 0,
+        "sensors": {
+          "temperature": 0,
+          "humidity": 0,
+          "light": 0,
+          "soilRaw": 0,
+          "soilPercent": 0,
+          "sampleValid": false
+        },
+        "actuators": {
+          "pump": "OFF",
+          "fan": "OFF",
+          "pumpRuntimeMs": 0,
+          "fanRuntimeMs": 0,
+          "safetyInterlock": "ACTIVE"
+        },
+        "security": {
+          "radioAuthenticated": false,
+          "outerHmac": "NOT_CHECKED",
+          "replayWindow": "NOT_CHECKED",
+          "timestampWindow": "NOT_CHECKED",
+          "aesGcm": "NOT_CHECKED",
+          "gcmTag": "NOT_CHECKED",
+          "firebaseAuthentication": "NOT_CHECKED",
+          "uidAuthorization": "NOT_CHECKED",
+          "tlsCertificateValidation": "ENABLED"
+        }
+      },
+      "telemetry": {
+        "raw_stream": {
+          "README": {
+            "note": "Gateway creates one child record per accepted packet."
+          }
+        }
+      },
+      "security": {
+        "session": {
+          "state": "INACTIVE",
+          "sessionId": 0,
+          "startedAt": 0,
+          "lastAcceptedSequence": 0,
+          "packetsSinceRotation": 0,
+          "revoked": false
+        },
+        "key_lifecycle": {
+          "appSKeyState": "ZEROIZED",
+          "nwkSKeyState": "ZEROIZED",
+          "rotationCounter": 0,
+          "lastRotationAt": 0,
+          "lastRotationReason": "NONE",
+          "productionPacketLimit": 1000,
+          "productionTimeLimitHours": 24
+        },
+        "counters": {
+          "acceptedPackets": 0,
+          "replayRejected": 0,
+          "invalidOuterHmac": 0,
+          "invalidGcmTag": 0,
+          "staleTimestamp": 0,
+          "wrongSession": 0,
+          "malformedPackets": 0,
+          "keyRotations": 0,
+          "sessionRevocations": 0,
+          "firebaseWriteSuccess": 0,
+          "firebaseWriteFailure": 0
+        },
+        "events": {
+          "README": {
+            "note": "Gateway creates one child record per security event."
+          }
+        }
+      },
+      "component1": {
+        "rfid": {
+          "authorized": false,
+          "uidMasked": "NOT_AVAILABLE",
+          "sectorAuthentication": "NOT_CHECKED",
+          "cloneRisk": "UNKNOWN",
+          "authLatencyUs": 0,
+          "sessionId": 0
+        },
+        "tinyml": {
+          "classification": "NOT_RUN",
+          "anomalyProbability": 0,
+          "confirmationCount": 0,
+          "requiredConfirmations": 3,
+          "inferenceLatencyUs": 0
+        },
+        "tamper": {
+          "state": "SECURE",
+          "lastChangedAt": 0
+        },
+        "actuators": {
+          "pump": "OFF",
+          "fan": "OFF",
+          "relayFailSafe": "ACTIVE"
+        },
+        "insider_attribution": {
+          "authenticatedSessionActive": false,
+          "correlation": "NONE",
+          "humanIdentityClaim": "NOT_MADE"
+        }
+      },
+      "behavioral_anomaly": {
+        "current": {
+          "overallRiskScore": 0,
+          "state": "NORMAL",
+          "confirmed": false,
+          "confirmationCount": 0,
+          "sensorValue": {
+            "score": 0,
+            "status": "NORMAL",
+            "reasons": []
+          },
+          "trafficBehavior": {
+            "score": 0,
+            "status": "NORMAL",
+            "packetRatePerMinute": 0,
+            "duplicateRate": 0,
+            "authenticationFailureRate": 0,
+            "reasons": []
+          },
+          "networkWide": {
+            "score": 0,
+            "status": "NOT_ENOUGH_REAL_NODES",
+            "affectedNodeCount": 0,
+            "totalNodeCount": 1,
+            "affectedRatio": 0,
+            "reasons": []
+          },
+          "timeBased": {
+            "score": 0,
+            "status": "NORMAL",
+            "packetIntervalMs": 0,
+            "timestampDeltaMs": 0,
+            "missingHeartbeat": false,
+            "reasons": []
+          },
+          "action": {
+            "decision": "ALLOW",
+            "firebaseForwarding": "ALLOWED",
+            "keyAction": "NONE",
+            "systemAction": "NONE"
+          },
+          "evaluatedAt": 0
+        },
+        "history": {
+          "README": {
+            "note": "Gateway creates one child record per behavioral-anomaly evaluation."
+          }
+        }
+      },
+      "system": {
+        "status": {
+          "sensorNodeOnline": false,
+          "gatewayOnline": false,
+          "firebaseConnected": false,
+          "lastSensorPacketAt": 0,
+          "lastGatewayHeartbeatAt": 0,
+          "firmwareSensor": "NOT_SET",
+          "firmwareGateway": "NOT_SET"
+        }
+      }
+    }
+  },
+  "network": {
+    "summary": {
+      "realNodeCount": 1,
+      "simulatedNodeCount": 0,
+      "onlineNodeCount": 0,
+      "anomalousNodeCount": 0,
+      "networkRiskScore": 0,
+      "networkState": "NORMAL",
+      "lastEvaluatedAt": 0
+    },
+    "nodes": {
+      "GH_NODE_01": {
+        "source": "REAL",
+        "online": false,
+        "riskScore": 0,
+        "state": "NORMAL"
+      }
+    }
+  },
+  "demo": {
+    "scenarios": {
+      "normalTelemetry": {
+        "enabled": true
+      },
+      "sensorValueAnomaly": {
+        "enabled": true
+      },
+      "trafficBurst": {
+        "enabled": true
+      },
+      "networkWideAttack": {
+        "enabled": true,
+        "mode": "SIMULATION_ONLY_UNTIL_MULTIPLE_REAL_NODES_EXIST"
+      },
+      "timeBasedAnomaly": {
+        "enabled": true
+      },
+      "replayAttack": {
+        "enabled": true
+      },
+      "invalidHmac": {
+        "enabled": true
+      },
+      "invalidGcmTag": {
+        "enabled": true
+      },
+      "staleTimestamp": {
+        "enabled": true
+      },
+      "keyRotation": {
+        "enabled": true
+      },
+      "sessionRevocation": {
+        "enabled": true
+      },
+      "rfidCloneRisk": {
+        "enabled": true
+      },
+      "physicalTamper": {
+        "enabled": true
+      },
+      "tinymlAnomaly": {
+        "enabled": true
+      },
+      "insiderMisuse": {
+        "enabled": true
+      }
+    },
+    "latest_result": {
+      "scenario": "NONE",
+      "input": {},
+      "pipeline": {},
+      "output": {},
+      "simulation": true,
+      "executedAt": 0
+    }
+  }
+}

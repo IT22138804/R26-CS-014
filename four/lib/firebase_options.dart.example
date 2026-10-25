@@ -1,0 +1,4 @@
+// Generate the real file with:
+// flutterfire configure --project=ghouse-bccc9
+//
+// Never place a Firebase Admin service-account JSON in a mobile application.

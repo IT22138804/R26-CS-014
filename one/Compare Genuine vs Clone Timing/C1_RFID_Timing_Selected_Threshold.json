@@ -1,0 +1,38 @@
+{
+  "evidence_level": "SYNTHETIC_PIPELINE_ONLY",
+  "selection_rule": "Highest clone recall among thresholds with false-positive rate <= 5%; ties resolved by F1 and balanced accuracy.",
+  "security_targets": {
+    "maximum_false_positive_rate": 0.05,
+    "minimum_useful_clone_recall": 0.5
+  },
+  "default_threshold_0_5": {
+    "threshold": 0.5,
+    "true_genuine": 77,
+    "false_clone_alarms": 20,
+    "missed_clones": 24,
+    "detected_clones": 69,
+    "accuracy": 0.7684210526315789,
+    "precision_clone": 0.7752808988764045,
+    "recall_clone": 0.7419354838709677,
+    "f1_clone": 0.7582417582417582,
+    "false_positive_rate": 0.20618556701030927,
+    "specificity_genuine": 0.7938144329896908,
+    "balanced_accuracy": 0.7678749584303293
+  },
+  "selected_threshold": {
+    "threshold": 0.751,
+    "true_genuine": 94.0,
+    "false_clone_alarms": 3.0,
+    "missed_clones": 44.0,
+    "detected_clones": 49.0,
+    "accuracy": 0.7526315789473684,
+    "precision_clone": 0.9423076923076923,
+    "recall_clone": 0.5268817204301075,
+    "f1_clone": 0.6758620689655173,
+    "false_positive_rate": 0.030927835051546393,
+    "specificity_genuine": 0.9690721649484536,
+    "balanced_accuracy": 0.7479769426892806
+  },
+  "deployment_decision": "SYNTHETIC PIPELINE ONLY \u2014 DO NOT DEPLOY AS A PRIMARY SECURITY SIGNAL",
+  "warning": "Synthetic metrics must not be reported as physically measured clone-detection performance."
+}

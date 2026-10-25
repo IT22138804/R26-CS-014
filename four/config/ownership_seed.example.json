@@ -1,0 +1,42 @@
+{
+  "users": {
+    "uid_operator_A": {
+      "role": "operator",
+      "assigned_nodes": {
+        "GH_NODE_01": true
+      }
+    },
+    "uid_operator_B": {
+      "role": "operator",
+      "assigned_nodes": {
+        "GH_NODE_02": true
+      }
+    },
+    "uid_viewer_A": {
+      "role": "viewer",
+      "assigned_nodes": {
+        "GH_NODE_01": true
+      }
+    },
+    "uid_manager_A": {
+      "role": "manager",
+      "assigned_nodes": {
+        "GH_NODE_01": true
+      }
+    }
+  },
+  "devices": {
+    "GH_NODE_01": {
+      "actuators": {
+        "relay_pump": "OFF",
+        "relay_fan": "OFF"
+      }
+    },
+    "GH_NODE_02": {
+      "actuators": {
+        "relay_pump": "OFF",
+        "relay_fan": "OFF"
+      }
+    }
+  }
+}

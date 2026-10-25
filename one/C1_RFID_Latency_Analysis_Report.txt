@@ -1,0 +1,73 @@
+COMPONENT 1 CLOSURE — STEP 34B-2
+REAL RFID LATENCY BASELINE ANALYSIS
+==========================================================
+
+Input file                      : C1_RFID_Latency_Baseline_Log.txt
+Unique presentation rows        : 105
+Authorized successful rows      : 100
+Authorized first-pass rows      : 97
+Authorized retry-success rows   : 3
+Non-authorized/failure rows     : 5
+
+Sector authentication latency:
+  Count                  : 97
+  Mean                   : 2238.701 µs
+  Sample standard dev.   : 4.914 µs
+  Median                 : 2239.000 µs
+  Minimum                : 2225.000 µs
+  Maximum                : 2249.000 µs
+  1st percentile         : 2227.880 µs
+  99th percentile        : 2249.000 µs
+  Recommended lower      : 2212.313 µs
+  Recommended upper      : 2265.687 µs
+  Baseline outside limits: 0
+
+Protected block-read latency:
+  Count                  : 97
+  Mean                   : 2689.309 µs
+  Sample standard dev.   : 10.687 µs
+  Median                 : 2689.000 µs
+  Minimum                : 2660.000 µs
+  Maximum                : 2711.000 µs
+  1st percentile         : 2664.800 µs
+  99th percentile        : 2711.000 µs
+  Recommended lower      : 2626.731 µs
+  Recommended upper      : 2751.269 µs
+  Baseline outside limits: 0
+
+Protected pipeline latency:
+  Count                  : 97
+  Mean                   : 4931.918 µs
+  Sample standard dev.   : 12.701 µs
+  Median                 : 4932.000 µs
+  Minimum                : 4900.000 µs
+  Maximum                : 4958.000 µs
+  1st percentile         : 4900.960 µs
+  99th percentile        : 4958.000 µs
+  Recommended lower      : 4860.835 µs
+  Recommended upper      : 5003.165 µs
+  Baseline outside limits: 0
+
+Pass conditions:
+- at_least_100_authorized_successes: PASSED
+- at_least_80_first_pass_successes: PASSED
+- no_missing_timing_values: PASSED
+- all_timing_values_positive: PASSED
+
+STEP 34B-2 RESULT: PASSED
+
+Interpretation:
+The calculated limits characterize timing variation for the authorized reference tag and current RC522/ESP32 setup.
+They are not evidence that every cloned or emulated RFID credential will fall outside these limits.
+An actual comparison tag or emulator must be measured before reporting clone-detection sensitivity or specificity.
+
+Files created:
+- C1_RFID_Latency_Baseline_Cleaned.csv
+- C1_RFID_Latency_FirstPass_Cleaned.csv
+- C1_RFID_Latency_Statistics.csv
+- C1_RFID_Latency_Thresholds.json
+- C1_RFID_Latency_Analysis_Report.txt
+- C1_RFID_Auth_Latency_Histogram.png
+- C1_RFID_Block_Read_Latency_Histogram.png
+- C1_RFID_Pipeline_Latency_Histogram.png
+- C1_RFID_Auth_vs_Pipeline_Scatter.png

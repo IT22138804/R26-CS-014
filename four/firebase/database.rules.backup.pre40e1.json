@@ -1,0 +1,20 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "greenhouse": {
+      "$nodeId": {
+        ".read": "auth != null && (auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1' || auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2')",
+        ".write": "auth != null && auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1'"
+      }
+    },
+    "network": {
+      ".read": "auth != null && (auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1' || auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2')",
+      ".write": "auth != null && auth.uid === 'JCBeErnTRHf5ZP7OGpLWkpjfKKy1'"
+    },
+    "demo": {
+      ".read": "auth != null && auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2'",
+      ".write": "auth != null && auth.uid === 'L7XhYCjTs9Ys21wwpb9FOnDeyau2'"
+    }
+  }
+}

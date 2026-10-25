@@ -1,0 +1,40 @@
+{
+  "dashboardPages": {
+    "overview": [
+      "/greenhouse/GH_NODE_01/current",
+      "/greenhouse/GH_NODE_01/system/status",
+      "/greenhouse/GH_NODE_01/security/session",
+      "/greenhouse/GH_NODE_01/behavioral_anomaly/current",
+      "/network/summary"
+    ],
+    "liveSensors": [
+      "/greenhouse/GH_NODE_01/current/sensors",
+      "/greenhouse/GH_NODE_01/telemetry/raw_stream"
+    ],
+    "component1Security": [
+      "/greenhouse/GH_NODE_01/component1"
+    ],
+    "securePipeline": [
+      "/greenhouse/GH_NODE_01/current/security",
+      "/greenhouse/GH_NODE_01/security/events"
+    ],
+    "keyLifecycle": [
+      "/greenhouse/GH_NODE_01/security/session",
+      "/greenhouse/GH_NODE_01/security/key_lifecycle"
+    ],
+    "behavioralAnomaly": [
+      "/greenhouse/GH_NODE_01/behavioral_anomaly/current",
+      "/greenhouse/GH_NODE_01/behavioral_anomaly/history",
+      "/network/summary",
+      "/network/nodes"
+    ],
+    "attackEvents": [
+      "/greenhouse/GH_NODE_01/security/events",
+      "/greenhouse/GH_NODE_01/security/counters"
+    ],
+    "demonstrationLab": [
+      "/demo/scenarios",
+      "/demo/latest_result"
+    ]
+  }
+}

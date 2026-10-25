@@ -1,0 +1,70 @@
+COMPONENT 1 — STEP 30B FEATURE CORRECTION AND TRAINING REPORT
+====================================================================
+
+Input file: C1_TinyML_Model_5_Features_Cleaned.csv
+Feature-fixed file: C1_TinyML_Model_5_Features_FeatureFixed.csv
+Synthetic soil-disconnect rows corrected: 300
+Corrected moisture-delta range: -80.0 to -35.0
+
+Reason for correction:
+The original generator produced a large negative moisture delta only on the first disconnect row. Later disconnected rows returned a delta close to zero and therefore looked normal to the classifier.
+The corrected synthetic feature represents comparison with the last valid soil reading until the sensor becomes valid again.
+
+Validation metrics:
+- Accuracy: 0.9556
+- Precision (anomaly): 0.9904
+- Recall (anomaly): 0.9200
+- F1 (anomaly): 0.9539
+- ROC-AUC: 0.9913
+
+Test metrics:
+- Accuracy: 0.9733
+- Precision (anomaly): 0.9863
+- Recall (anomaly): 0.9600
+- F1 (anomaly): 0.9730
+- ROC-AUC: 0.9886
+- Specificity (normal): 0.9867
+- False-positive rate: 0.0133
+- False-negative rate: 0.0400
+
+Test confusion matrix:
+TN=222  FP=3
+FN=9  TP=216
+
+Classification report:
+              precision    recall  f1-score   support
+
+      NORMAL     0.9610    0.9867    0.9737       225
+     ANOMALY     0.9863    0.9600    0.9730       225
+
+    accuracy                         0.9733       450
+   macro avg     0.9737    0.9733    0.9733       450
+weighted avg     0.9737    0.9733    0.9733       450
+
+Per-scenario test performance:
+0 NORMAL_OPERATION: 222/225 correct (98.67%)
+1 RFID_AUTH_ANOMALY: 45/45 correct (100.00%)
+2 SOIL_SENSOR_DISCONNECT: 45/45 correct (100.00%)
+3 LIGHT_SENSOR_MANIPULATION: 45/45 correct (100.00%)
+4 ACTUATOR_RUNTIME_MISUSE: 36/45 correct (80.00%)
+5 PHYSICAL_TAMPER: 45/45 correct (100.00%)
+
+Feature importance:
+relay_runtime_ms: 0.333287
+temp_light_ratio: 0.190981
+rfid_auth_feature: 0.166137
+moisture_delta: 0.158250
+tamper_state: 0.151345
+
+Files created:
+- C1_TinyML_Model_5_Features_FeatureFixed.csv
+- C1_RF_Step30B_Model.joblib
+- C1_RF_Step30B_Test_Predictions.csv
+- C1_RF_Step30B_Feature_Importance.csv
+- C1_RF_Step30B_Metrics.json
+- C1_RF_Step30B_Confusion_Matrix.png
+- C1_RF_Step30B_Feature_Importance.png
+
+STEP 30B RESULT: PASSED
+
+IMPORTANT: The correction is for synthetic pipeline validation. Update the real ESP32 logger before collecting thesis data.
